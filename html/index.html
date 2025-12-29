@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bellis.tech — Stevie Bellis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-card: #151515;
+      --text-primary: #e8e8e8;
+      --text-secondary: #888888;
+      --accent: #4a9eff;
+      --accent-dim: #2a5a99;
+      --border: #222222;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--text-primary);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(34, 34, 34, 0.6);
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--text-primary);
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav ul a {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      text-transform: lowercase;
+    }
+
+    nav ul a:hover {
+      color: var(--text-primary);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin-bottom: 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--text-primary);
+      color: var(--bg-primary);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    section {
+      padding: 5rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    section p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    #about {
+      border-top: 1px solid var(--border);
+    }
+
+    /* Reading / Feeds */
+    #reading {
+      border-top: 1px solid var(--border);
+    }
+
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .feed-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+
+    .feed-category h3 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .feed-list {
+      list-style: none;
+    }
+
+    .feed-list li {
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .feed-list li a:first-child {
+      color: var(--text-secondary);
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .feed-list li a:first-child:hover {
+      color: var(--text-primary);
+    }
+
+    .feed-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .rss-link, .show-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent-dim) !important;
+      opacity: 0.7;
+      cursor: pointer;
+    }
+
+    .rss-link:hover, .show-link:hover {
+      opacity: 1;
+      color: var(--accent) !important;
+    }
+
+    .show-link {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .live-feeds {
+      margin-top: 2rem;
+    }
+
+    .live-feeds h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .live-indicator {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .feed-filter-info {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .feed-filter-info a {
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    .feed-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+      min-height: 300px;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .feed-items {
+      list-style: none;
+    }
+
+    .feed-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feed-item:last-child {
+      border-bottom: none;
+    }
+
+    .feed-item-title {
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .feed-item-title:hover {
+      color: var(--accent);
+    }
+
+    .feed-item-meta {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .feed-item-source {
+      color: var(--accent-dim);
+    }
+
+    .feed-loading {
+      color: var(--text-secondary);
+      font-style: italic;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .feed-error {
+      color: #ef4444;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Star Controls */
+    #star-controls {
+      border-top: 1px solid var(--border);
+    }
+
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .control-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem;
+    }
+
+    .control-item label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+    }
+
+    .control-item input[type="range"] {
+      width: 100%;
+      height: 6px;
+      -webkit-appearance: none;
+      background: var(--border);
+      border-radius: 3px;
+      outline: none;
+    }
+
+    .control-item input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 16px;
+      height: 16px;
+      background: var(--accent);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .control-item input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: var(--accent);
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+
+    .control-value {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      text-align: right;
+      margin-top: 0.25rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Contact */
+    #contact {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding-bottom: 3rem;
+    }
+
+    .contact-info {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    /* Dog Image */
+    .dog-image {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .dog-image img {
+      max-width: 300px;
+      width: 100%;
+      border-radius: 8px;
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      nav {
+        padding: 1rem;
+      }
+
+      nav ul {
+        gap: 1rem;
+      }
+
+      .hero {
+        padding: 5rem 1.5rem 3rem;
+      }
+
+      section {
+        padding: 3rem 1.5rem;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+      }
+
+      .feed-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .controls-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  
+  <nav>
+    <a href="/" class="logo"><span>(B)</span>ELLIS TECH • System Operations Human</a>
+    <ul>
+      <li><a href="blog.html">blog</a></li>
+      <li><a href="resume.html">resume</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Internet Plumber &amp; Computer Janitor</h1>
+      <p>
+        I work with hybrid datacenter and cloud infrastructure—mostly networking, 
+        Linux systems, and automation tooling.
+      </p>
+      <div class="btn-group">
+        <a href="resume.html" class="btn btn-primary">View resume</a>
+        <a href="#contact" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        10 years in IT, with the last 7 or so focused on hybrid datacenter and cloud environments. 
+        Currently looking for Network Engineering, SRE, DevOps, or Network Automation roles 
+        where I can contribute what I've learned about infrastructure, reliability, and automation.
+      </p>
+    </section>
+
+    <section id="reading">
+      <h2>News, Alerts, Reading, and Feeds</h2>
+      <p>Blogs and resources I follow.</p>
+      
+      <div class="feed-grid" id="feed-grid">
+        <!-- Dynamically populated from /rss_config/feeds.json -->
+        <div class="feed-loading">Loading feed sources...</div>
+      </div>
+
+      <div class="live-feeds">
+        <h3><span class="live-indicator"></span> Latest from the feeds</h3>
+        <div class="feed-filter-info" id="feed-filter-info">
+          Showing latest from all sources.
+        </div>
+        <div class="feed-content">
+          <div class="feed-loading" id="items-loading">Loading feeds...</div>
+          <ul class="feed-items" id="feed-items" style="display: none;"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="star-controls">
+      <h2>Background Settings</h2>
+      <p>Adjust the floating particles.</p>
+      <div class="controls-grid">
+        <div class="control-item">
+          <label for="star-count">Density</label>
+          <input type="range" id="star-count" min="50" max="500" value="200">
+          <div class="control-value" id="star-count-value">200</div>
+        </div>
+        <div class="control-item">
+          <label for="star-size">Size</label>
+          <input type="range" id="star-size" min="5" max="30" value="15">
+          <div class="control-value" id="star-size-value">1.5px</div>
+        </div>
+        <div class="control-item">
+          <label for="star-speed">Speed</label>
+          <input type="range" id="star-speed" min="5" max="50" value="25">
+          <div class="control-value" id="star-speed-value">25</div>
+        </div>
+        <div class="control-item">
+          <label for="star-brightness">Brightness</label>
+          <input type="range" id="star-brightness" min="20" max="100" value="60">
+          <div class="control-value" id="star-brightness-value">60%</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="contact-info">
+         • <a href="mailto:stevie@bellis.tech">stevie@bellis.tech</a> •  
+      </p>
+      <div class="social-links">
+        <a href="https://bellis.tech">bellis.tech</a>
+        <a href="https://www.linkedin.com/in/steviebellis">LinkedIn</a>
+        <a href="https://github.com/bellistech">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="dog-image">
+    <img src="https://bellis.tech/assets/img_1337.png" alt="">
+  </div>
+
+  <footer>
+    Stevie Bellis • System Operations Human 
+  </footer>
+
+  <script>
+    // ===========================================
+    // SECURITY: HTML entity encoding for XSS prevention
+    // ===========================================
+    const escapeHtml = (str) => {
+      if (!str) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    };
+
+    // Validate URLs - only allow http/https
+    const sanitizeUrl = (url) => {
+      if (!url) return '#';
+      try {
+        const parsed = new URL(url);
+        if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+          return parsed.href;
+        }
+      } catch (e) {}
+      return '#';
+    };
+
+    // ===========================================
+    // Particle Background
+    // ===========================================
+    let particleSettings = {
+      count: 200,
+      maxSize: 1.5,
+      speed: 0.25,
+      brightness: 0.6
+    };
+
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = document.body.scrollHeight;
+    }
+    
+    function createParticles() {
+      particles = [];
+      const particleCount = particleSettings.count;
+      
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * particleSettings.maxSize + 0.5,
+          opacity: Math.random() * particleSettings.brightness + 0.1,
+          speed: Math.random() * particleSettings.speed + 0.1,
+          offset: Math.random() * Math.PI * 2
+        });
+      }
+    }
+    
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      const time = Date.now() * 0.001;
+      
+      particles.forEach(p => {
+        const wobbleX = Math.sin(time * 0.5 + p.offset) * 2;
+        const drawX = p.x + wobbleX;
+        const drawY = (p.y - (time * p.speed * 30) % canvas.height + canvas.height) % canvas.height;
+        
+        ctx.beginPath();
+        ctx.arc(drawX, drawY, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(74, 158, 255, ${p.opacity})`;
+        ctx.fill();
+      });
+      
+      requestAnimationFrame(drawParticles);
+    }
+    
+    resizeCanvas();
+    createParticles();
+    drawParticles();
+    
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      createParticles();
+    });
+
+    // Star controls
+    document.getElementById('star-count').addEventListener('input', (e) => {
+      particleSettings.count = parseInt(e.target.value);
+      document.getElementById('star-count-value').textContent = e.target.value;
+      createParticles();
+    });
+
+    document.getElementById('star-size').addEventListener('input', (e) => {
+      particleSettings.maxSize = parseInt(e.target.value) / 10;
+      document.getElementById('star-size-value').textContent = (particleSettings.maxSize).toFixed(1) + 'px';
+      createParticles();
+    });
+
+    document.getElementById('star-speed').addEventListener('input', (e) => {
+      particleSettings.speed = parseInt(e.target.value) / 100;
+      document.getElementById('star-speed-value').textContent = e.target.value;
+      createParticles();
+    });
+
+    document.getElementById('star-brightness').addEventListener('input', (e) => {
+      particleSettings.brightness = parseInt(e.target.value) / 100;
+      document.getElementById('star-brightness-value').textContent = e.target.value + '%';
+      createParticles();
+    });
+
+    // ===========================================
+    // RSS Feed System - Dynamic from JSON config
+    // ===========================================
+    const CONFIG_URL = '/rss_config/feeds.json';
+    const CACHE_URL = '/rss_cache_n_fetch';
+    const ITEMS_PER_FEED = 2;
+    const MAX_DISPLAY_ITEMS = 30;
+
+    // Category display names
+    const CATEGORY_NAMES = {
+      'networking': 'Networking',
+      'sre_devops': 'SRE / DevOps',
+      'linux_systems': 'Linux / Systems',
+      'news_community': 'News / Community',
+      'security': 'Security',
+      'other_interests': 'Other Interests'
+    };
+
+    let feedConfig = null;
+    let feedCache = {};
+    let currentFilter = null;
+
+    const feedGrid = document.getElementById('feed-grid');
+    const feedItems = document.getElementById('feed-items');
+    const itemsLoading = document.getElementById('items-loading');
+    const feedFilterInfo = document.getElementById('feed-filter-info');
+
+    // ===========================================
+    // Build category cards from config
+    // ===========================================
+    function buildFeedGrid(config) {
+      feedGrid.innerHTML = '';
+      
+      for (const [categoryKey, feeds] of Object.entries(config.categories)) {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'feed-category';
+        
+        const categoryName = CATEGORY_NAMES[categoryKey] || categoryKey;
+        const h3 = document.createElement('h3');
+        h3.textContent = categoryName;
+        categoryDiv.appendChild(h3);
+        
+        const ul = document.createElement('ul');
+        ul.className = 'feed-list';
+        
+        for (const [feedKey, feedInfo] of Object.entries(feeds)) {
+          const li = document.createElement('li');
+          
+          // Site link
+          const siteLink = document.createElement('a');
+          siteLink.href = sanitizeUrl(feedInfo.site_url);
+          siteLink.textContent = escapeHtml(feedInfo.name);
+          siteLink.target = '_blank';
+          siteLink.rel = 'noopener';
+          li.appendChild(siteLink);
+          
+          // Links container
+          const linksSpan = document.createElement('span');
+          linksSpan.className = 'feed-links';
+          
+          // Show button
+          const showBtn = document.createElement('button');
+          showBtn.className = 'show-link';
+          showBtn.textContent = 'show';
+          showBtn.dataset.feed = feedKey;
+          showBtn.dataset.category = categoryKey;
+          showBtn.addEventListener('click', () => {
+            showSingleFeed(categoryKey, feedKey, feedInfo.name);
+          });
+          linksSpan.appendChild(showBtn);
+          
+          // RSS link
+          const rssLink = document.createElement('a');
+          rssLink.href = sanitizeUrl(feedInfo.url);
+          rssLink.className = 'rss-link';
+          rssLink.textContent = 'rss';
+          rssLink.target = '_blank';
+          rssLink.rel = 'noopener';
+          linksSpan.appendChild(rssLink);
+          
+          li.appendChild(linksSpan);
+          ul.appendChild(li);
+        }
+        
+        categoryDiv.appendChild(ul);
+        feedGrid.appendChild(categoryDiv);
+      }
+    }
+
+    // ===========================================
+    // Fetch cached feed data
+    // ===========================================
+    async function fetchCategoryCache(category) {
+      if (feedCache[category] && (Date.now() - feedCache[category].timestamp < 300000)) {
+        return feedCache[category].data;
+      }
+      
+      try {
+        const resp = await fetch(`${CACHE_URL}/${category}.json`);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const data = await resp.json();
+        feedCache[category] = { data, timestamp: Date.now() };
+        return data;
+      } catch (e) {
+        console.error(`Failed to fetch ${category}:`, e);
+        return null;
+      }
+    }
+
+    // ===========================================
+    // Format dates
+    // ===========================================
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return '';
+      
+      const now = new Date();
+      const diff = now - date;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const days = Math.floor(hours / 24);
+      
+      if (hours < 1) return 'just now';
+      if (hours < 24) return `${hours}h ago`;
+      if (days < 7) return `${days}d ago`;
+      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    }
+
+    // ===========================================
+    // Display feed items
+    // ===========================================
+    function displayItems(items) {
+      itemsLoading.style.display = 'none';
+      feedItems.innerHTML = '';
+      
+      if (!items || items.length === 0) {
+        feedItems.innerHTML = '<li class="feed-item" style="color: var(--text-secondary);">No items found</li>';
+        feedItems.style.display = 'block';
+        return;
+      }
+      
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'feed-item';
+        
+        const titleLink = document.createElement('a');
+        titleLink.href = sanitizeUrl(item.link);
+        titleLink.className = 'feed-item-title';
+        titleLink.textContent = escapeHtml(item.title);
+        titleLink.target = '_blank';
+        titleLink.rel = 'noopener';
+        li.appendChild(titleLink);
+        
+        const meta = document.createElement('span');
+        meta.className = 'feed-item-meta';
+        
+        const source = document.createElement('span');
+        source.className = 'feed-item-source';
+        source.textContent = escapeHtml(item.source || '');
+        meta.appendChild(source);
+        
+        const dateText = formatDate(item.published);
+        if (item.source && dateText) {
+          meta.appendChild(document.createTextNode(' • '));
+        }
+        meta.appendChild(document.createTextNode(dateText));
+        
+        li.appendChild(meta);
+        feedItems.appendChild(li);
+      });
+      
+      feedItems.style.display = 'block';
+    }
+
+    // ===========================================
+    // Load aggregated feeds (all categories)
+    // ===========================================
+    async function loadAggregatedFeeds() {
+      itemsLoading.style.display = 'block';
+      itemsLoading.textContent = 'Loading feeds...';
+      feedItems.style.display = 'none';
+      currentFilter = null;
+      
+      if (!feedConfig) {
+        itemsLoading.textContent = 'Feed config not loaded';
+        return;
+      }
+      
+      const allItems = [];
+      const categories = Object.keys(feedConfig.categories);
+      
+      const results = await Promise.allSettled(
+        categories.map(cat => fetchCategoryCache(cat))
+      );
+      
+      results.forEach((result, idx) => {
+        if (result.status === 'fulfilled' && result.value?.feeds) {
+          result.value.feeds.forEach(feed => {
+            if (feed.items) {
+              const items = feed.items.slice(0, ITEMS_PER_FEED).map(item => ({
+                ...item,
+                source: feed.feed_name
+              }));
+              allItems.push(...items);
+            }
+          });
+        }
+      });
+      
+      // Sort by date (newest first)
+      allItems.sort((a, b) => {
+        const dateA = a.published ? new Date(a.published) : new Date(0);
+        const dateB = b.published ? new Date(b.published) : new Date(0);
+        return dateB - dateA;
+      });
+      
+      displayItems(allItems.slice(0, MAX_DISPLAY_ITEMS));
+      updateFilterInfo(null);
+    }
+
+    // ===========================================
+    // Show single feed
+    // ===========================================
+    async function showSingleFeed(category, feedKey, feedName) {
+      itemsLoading.style.display = 'block';
+      itemsLoading.textContent = `Loading ${feedName}...`;
+      feedItems.style.display = 'none';
+      currentFilter = { category, feedKey, feedName };
+      
+      const data = await fetchCategoryCache(category);
+      if (!data?.feeds) {
+        displayItems([]);
+        updateFilterInfo(currentFilter);
+        return;
+      }
+      
+      const feed = data.feeds.find(f => f.feed_id === feedKey);
+      if (!feed?.items) {
+        displayItems([]);
+        updateFilterInfo(currentFilter);
+        return;
+      }
+      
+      const items = feed.items.slice(0, 15).map(item => ({
+        ...item,
+        source: feed.feed_name
+      }));
+      
+      displayItems(items);
+      updateFilterInfo(currentFilter);
+      
+      // Scroll to feed content
+      document.querySelector('.live-feeds').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ===========================================
+    // Update filter info display
+    // ===========================================
+    function updateFilterInfo(filter) {
+      if (filter) {
+        feedFilterInfo.innerHTML = `Showing: <strong>${escapeHtml(filter.feedName)}</strong>. <a id="reset-filter" href="#">Show all</a>`;
+        document.getElementById('reset-filter').addEventListener('click', (e) => {
+          e.preventDefault();
+          loadAggregatedFeeds();
+        });
+      } else {
+        feedFilterInfo.innerHTML = 'Showing latest from all sources.';
+      }
+    }
+
+    // ===========================================
+    // Initialize
+    // ===========================================
+    async function init() {
+      try {
+        const resp = await fetch(CONFIG_URL);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        feedConfig = await resp.json();
+        
+        buildFeedGrid(feedConfig);
+        await loadAggregatedFeeds();
+      } catch (e) {
+        console.error('Failed to load feed config:', e);
+        feedGrid.innerHTML = '<div class="feed-error">Failed to load feed configuration</div>';
+        itemsLoading.textContent = 'Feed system unavailable';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — bellis.tech</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/blog.css">
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  
+  <nav>
+    <a href="/" class="logo"><span>(B)</span>ELLIS TECH • sysops human</a>
+    <ul>
+      <li><a href="blog.html" class="active">blog</a></li>
+      <li><a href="resume.html">resume</a></li>
+      <li><a href="/#about">about</a></li>
+      <li><a href="/#contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section class="blog-header">
+      <h1>Blog</h1>
+      <p>Thoughts on infrastructure, automation, and occasionally other things.</p>
+    </section>
+
+    <section class="blog-list" id="blog-list">
+      <!-- Blog entries loaded from JSON -->
+      <div class="feed-loading">Loading posts...</div>
+    </section>
+  </main>
+
+  <footer>
+    Stevie Bellis • System Operations Human 
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="/js/main.js"></script>
+  <script src="/js/blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# local git backup folders (DO NOT COMMIT)
+.git.bak.*
+
+# generated / local cache
+html/rss_cache_n_fetch/cache
+
+# huge local-only file (GitHub blocks >100MB)
+html/assets/bots.txt

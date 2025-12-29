@@ -1,0 +1,274 @@
+/* blog.css - Blog-specific styles (extends main.css) */
+
+.blog-header {
+  text-align: left;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border, #222);
+  margin-bottom: 2rem;
+}
+
+.blog-header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.blog-header p {
+  color: var(--text-secondary, #888);
+  font-size: 1rem;
+}
+
+/* Blog list */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Blog card */
+.blog-card {
+  background: var(--bg-card, #151515);
+  border: 1px solid var(--border, #222);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+
+.blog-card:hover {
+  border-color: var(--accent-dim, #2a5a99);
+  background: var(--bg-secondary, #111);
+}
+
+.blog-card.expanded {
+  border-color: var(--accent, #4a9eff);
+  box-shadow: 0 0 20px rgba(74, 158, 255, 0.1);
+}
+
+/* Card header (clickable) */
+.blog-card-header {
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  user-select: none;
+}
+
+.blog-card-info {
+  flex: 1;
+}
+
+.blog-card-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary, #e8e8e8);
+  margin-bottom: 0.25rem;
+  transition: color 0.15s ease;
+}
+
+.blog-card:hover .blog-card-title {
+  color: var(--accent, #4a9eff);
+}
+
+.blog-card-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-secondary, #888);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.blog-card-meta span {
+  margin-right: 0.5rem;
+}
+
+/* Expand icon */
+.blog-card-expand {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary, #888);
+  transition: transform 0.3s ease, color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.blog-card.expanded .blog-card-expand {
+  transform: rotate(180deg);
+  color: var(--accent, #4a9eff);
+}
+
+/* Card content (expandable) */
+.blog-card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.blog-card.expanded .blog-card-content {
+  max-height: 80vh;
+}
+
+.blog-card-body {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid var(--border, #222);
+}
+
+/* Blog intro/summary */
+.blog-intro {
+  padding: 1.5rem 0;
+  color: var(--text-secondary, #888);
+  font-size: 0.95rem;
+  line-height: 1.85;
+  font-style: italic;
+  border-bottom: 1px solid var(--border, #222);
+  margin-bottom: 1rem;
+}
+
+.blog-intro p {
+  margin-bottom: 1rem;
+}
+
+.blog-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.blog-intro strong {
+  color: var(--text-primary, #e8e8e8);
+}
+
+.blog-intro em {
+  color: var(--accent, #4a9eff);
+}
+
+/* Conversation messages */
+.conversation {
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.message {
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  position: relative;
+}
+
+.message.human {
+  background: rgba(34, 197, 94, 0.06);
+  border-left: 2px solid #22c55e;
+}
+
+.message.robot {
+  background: rgba(139, 92, 246, 0.06);
+  border-left: 2px solid #8b5cf6;
+}
+
+.message-header {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-secondary, #888);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.message.human .message-header {
+  color: #22c55e;
+}
+
+.message.robot .message-header {
+  color: #8b5cf6;
+}
+
+.message.robot {
+    background: rgba(139, 92, 246, 0.06);
+    border-left: 2px solid #8b5cf6;
+}
+
+.message-header {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.message.human .message-header {
+    color: var(--success);
+}
+
+.message.robot .message-header {
+    color: #8b5cf6;
+}
+
+.message-content {
+  color: var(--text-secondary, #888);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.message-content p {
+  margin-bottom: 0.75rem;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.message-content ul,
+.message-content ol {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+}
+
+.message-content li {
+  margin-bottom: 0.35rem;
+}
+
+.message-content strong {
+  color: var(--text-primary, #e8e8e8);
+  font-weight: 500;
+}
+
+.message-content code {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(74, 158, 255, 0.1);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* State messages */
+.blog-list .feed-loading,
+.blog-list .error-state,
+.blog-list .empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary, #888);
+}
+
+.blog-list .error-state {
+  color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .blog-card-header {
+    padding: 1rem;
+  }
+
+  .blog-card-body {
+    padding: 0 1rem 1rem;
+  }
+
+  .blog-card-title {
+    font-size: 1rem;
+  }
+}
+

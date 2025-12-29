@@ -1,0 +1,151 @@
+{
+  "categories": {
+    "networking": {
+      "ipspace": {
+        "name": "ipSpace.net",
+        "site_url": "https://blog.ipspace.net/",
+        "url": "https://blog.ipspace.net/atom.xml"
+      },
+      "packetpushers": {
+        "name": "Packet Pushers",
+        "site_url": "https://packetpushers.net/",
+        "url": "https://packetpushers.net/feed/"
+      },
+      "networkingnerd": {
+        "name": "Networking Nerd",
+        "site_url": "https://networkingnerd.net/",
+        "url": "https://networkingnerd.net/feed/"
+      },
+      "rule11": {
+        "name": "rule 11 reader",
+        "site_url": "https://rule11.tech/",
+        "url": "https://rule11.tech/feed/"
+      }
+    },
+    "sre_devops": {
+      "vincent": {
+        "name": "Vincent Bernat",
+        "site_url": "https://vincent.bernat.ch/en/blog",
+        "url": "https://vincent.bernat.ch/en/blog/atom.xml"
+      },
+      "brendan": {
+        "name": "Brendan Gregg",
+        "site_url": "https://www.brendangregg.com/blog/",
+        "url": "https://www.brendangregg.com/blog/rss.xml"
+      },
+      "julia": {
+        "name": "Julia Evans",
+        "site_url": "https://jvns.ca/",
+        "url": "https://jvns.ca/atom.xml"
+      }
+    },
+    "linux_systems": {
+      "lwn": {
+        "name": "LWN.net",
+        "site_url": "https://lwn.net/",
+        "url": "https://lwn.net/headlines/rss"
+      },
+      "phoronix": {
+        "name": "Phoronix",
+        "site_url": "https://www.phoronix.com/",
+        "url": "https://www.phoronix.com/rss.php"
+      }
+    },
+    "news_community": {
+      "hn": {
+        "name": "Hacker News",
+        "site_url": "https://news.ycombinator.com/",
+        "url": "https://news.ycombinator.com/rss"
+      },
+      "lobsters": {
+        "name": "Lobsters",
+        "site_url": "https://lobste.rs/",
+        "url": "https://lobste.rs/rss"
+      },
+      "eff_updates": {
+        "name": "EFF Updates",
+        "site_url": "https://www.eff.org/deeplinks",
+        "url": "https://www.eff.org/rss/updates.xml"
+      },
+      "eff_podcast": {
+        "name": "How to Fix the Internet",
+        "site_url": "https://www.eff.org/podcast",
+        "url": "https://feeds.eff.org/howtofixtheinternet"
+      },
+      "eff_action": {
+        "name": "EFF Action Alerts",
+        "site_url": "https://act.eff.org/",
+        "url": "https://act.eff.org/action.atom"
+      }
+    },
+    "security": {
+      "cisa": {
+        "name": "CISA Advisories",
+        "site_url": "https://www.cisa.gov/news-events/cybersecurity-advisories",
+        "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+      },
+      "krebs": {
+        "name": "Krebs on Security",
+        "site_url": "https://krebsonsecurity.com/",
+        "url": "https://krebsonsecurity.com/feed/"
+      },
+      "schneier": {
+        "name": "Schneier on Security",
+        "site_url": "https://www.schneier.com/",
+        "url": "https://www.schneier.com/feed/atom/"
+      },
+      "troyhunt": {
+        "name": "Troy Hunt",
+        "site_url": "https://www.troyhunt.com/",
+        "url": "https://www.troyhunt.com/rss/"
+      },
+      "sans": {
+        "name": "SANS ISC",
+        "site_url": "https://isc.sans.edu/",
+        "url": "https://isc.sans.edu/rssfeed_full.xml"
+      },
+      "cluley": {
+        "name": "Graham Cluley",
+        "site_url": "https://grahamcluley.com/",
+        "url": "https://grahamcluley.com/feed/"
+      },
+      "darknet": {
+        "name": "Darknet Diaries",
+        "site_url": "https://darknetdiaries.com/",
+        "url": "https://feeds.megaphone.fm/darknetdiaries"
+      },
+      "securelist": {
+        "name": "Securelist",
+        "site_url": "https://securelist.com/",
+        "url": "https://securelist.com/feed/"
+      },
+      "thehackernews": {
+        "name": "The Hacker News",
+        "site_url": "https://thehackernews.com/",
+        "url": "https://feeds.feedburner.com/TheHackersNews"
+      }
+    },
+    "other_interests": {
+      "nps": {
+        "name": "National Park Service",
+        "site_url": "https://www.nps.gov/index.htm",
+        "url": "https://www.nps.gov/feeds/getNewsRSS.htm?id=gate"
+      },
+      "blm": {
+        "name": "Bureau of Land Mgmt",
+        "site_url": "https://www.blm.gov/",
+        "url": "https://www.blm.gov/press-release/national-office/rss"
+      },
+      "archaeology": {
+        "name": "Archaeology Magazine",
+        "site_url": "https://www.archaeology.org/",
+        "url": "https://www.archaeology.org/feed"
+      },
+      "bmx": {
+        "name": "BMX Union",
+        "site_url": "https://bmxunion.com/",
+        "url": "https://bmxunion.com/feed/"
+      }
+    }
+  }
+}
