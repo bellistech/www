@@ -6,3 +6,7 @@ html/rss_cache_n_fetch/cache
 
 # huge local-only file (GitHub blocks >100MB)
 html/assets/bots.txt
+
+# temp
+html/Stevie_Bellis_Apple_Compute_SRE.pdf
+html/Stevie_Bellis_Apple_DevOps_GSE.pdf

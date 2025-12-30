@@ -1,0 +1,8 @@
+Contact: mailto:security@bellis.tech
+Contact: mailto:stevie@bellis.tech
+Preferred-Languages: en
+Canonical: https://bellis.tech/.well-known/security.txt
+Policy: https://bellis.tech/security
+Acknowledgments: https://bellis.tech/security#acknowledgments
+
+Expires: 2026-12-30T00:00:00Z

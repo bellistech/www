@@ -1,0 +1,423 @@
+/* bellis.tech - Resume page overrides
+   Keep the Audio Resume content/JS intact, but align visuals with the shared
+   site look used by /css/style.css.
+
+   IMPORTANT: resume.html includes a large inline <style>. This file is meant
+   to be loaded AFTER style.css and will override the neon/gradient styling.
+*/
+
+/* -------------------------------------------------
+   Variable bridge
+   -------------------------------------------------
+   resume.html uses custom vars like --accent-primary.
+   style.css uses --accent. Map the old names to the new theme.
+*/
+:root {
+  --accent-primary: var(--accent);
+  --accent-secondary: var(--accent);
+  --accent-tertiary: var(--accent);
+  --accent-gold: var(--accent);
+  --bg-tertiary: var(--bg-secondary);
+}
+
+/* -------------------------------------------------
+   Base
+   ------------------------------------------------- */
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Remove the “party lights” background from the inline CSS */
+body {
+  background-image: none;
+}
+
+/* -------------------------------------------------
+   Navbar (matches style.css nav)
+   ------------------------------------------------- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 100;
+
+  padding: 0 var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(34, 34, 34, 0.6);
+}
+
+.navbar-brand {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: var(--accent);
+}
+
+.navbar-links {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.navbar-links a {
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.navbar-links a:hover {
+  color: var(--text-primary);
+}
+
+/* -------------------------------------------------
+   Layout
+   ------------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + var(--space-xl)) var(--space-xl) var(--space-3xl);
+}
+
+/* -------------------------------------------------
+   Header (tone down shimmer + neon)
+   ------------------------------------------------- */
+.header {
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.header::before {
+  content: none;
+  display: none;
+}
+
+.header h1 {
+  color: var(--text-primary);
+  text-shadow: none;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: var(--space-sm);
+}
+
+.header .subtitle {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  margin-bottom: var(--space-xs);
+}
+
+.header .tagline {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.contact-bar {
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.contact-item {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.contact-item:hover {
+  color: var(--text-primary);
+}
+
+/* -------------------------------------------------
+   Tabs (make them look like site buttons)
+   ------------------------------------------------- */
+.tabs {
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.tab {
+  border-radius: 999px;
+  padding: 0.65rem 1.1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.tab:hover {
+  border-color: var(--border-light);
+  color: var(--text-primary);
+  box-shadow: none;
+}
+
+.tab.active {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  background: var(--accent-glow);
+  box-shadow: none;
+}
+
+/* -------------------------------------------------
+   Cards (songs/skills/about/pdf)
+   ------------------------------------------------- */
+.song-cards {
+  gap: var(--space-xl);
+}
+
+.song-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: none;
+}
+
+.song-card::before {
+  background: var(--accent);
+  height: 3px;
+  opacity: 0.9;
+}
+
+.song-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  border-color: var(--border-light);
+}
+
+.song-card h2 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+}
+
+.song-card p {
+  color: var(--text-secondary);
+}
+
+/* Remove category-specific neon headers */
+.song-card.journey h2,
+.song-card.skills h2,
+.song-card.shiningstar h2,
+.song-card.dharma h2 {
+  color: var(--text-primary);
+}
+
+.song-card.journey::before,
+.song-card.skills::before,
+.song-card.shiningstar::before,
+.song-card.dharma::before {
+  background: var(--accent);
+}
+
+.song-meta {
+  margin-bottom: var(--space-lg);
+}
+
+.meta-tag {
+  background: rgba(74, 158, 255, 0.10);
+  border: 1px solid rgba(74, 158, 255, 0.18);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* -------------------------------------------------
+   Buttons (override gradients)
+   ------------------------------------------------- */
+.btn {
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: none;
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.btn-play,
+.control-btn.play-pause {
+  background: var(--accent);
+  border-color: transparent;
+  color: var(--bg-primary);
+}
+
+.btn-play:hover,
+.control-btn.play-pause:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.btn-vocals,
+.btn-lyrics,
+.btn-midi,
+.control-btn.secondary {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.btn-vocals:hover,
+.btn-lyrics:hover,
+.btn-midi:hover,
+.control-btn.secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* -------------------------------------------------
+   Skills tags
+   ------------------------------------------------- */
+.skill-category h4 {
+  color: var(--text-primary);
+}
+
+.skill-tag {
+  background: rgba(74, 158, 255, 0.10);
+  border: 1px solid rgba(74, 158, 255, 0.18);
+  color: var(--text-secondary);
+}
+
+/* -------------------------------------------------
+   Player section
+   ------------------------------------------------- */
+.player-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+}
+
+.mode-indicator {
+  background: rgba(74, 158, 255, 0.10);
+  color: var(--text-secondary);
+}
+
+.album-art,
+.album-art.journey,
+.album-art.techstack,
+.album-art.shiningstar,
+.album-art.dharma {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+}
+
+.song-info h3 {
+  color: var(--text-primary);
+}
+
+.close-player {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.close-player:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transform: none;
+}
+
+/* Visualizer/progress: unify to accent */
+.bar {
+  background: var(--accent);
+}
+
+.progress-bar {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.progress-fill {
+  background: var(--accent);
+}
+
+.visualizer-container,
+.lyrics-container {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+/* -------------------------------------------------
+   Inline-style cleanup
+   -------------------------------------------------
+   A few blocks inside resume.html use inline styles with the old neon palette.
+   We override those selectively here (inline styles require !important).
+*/
+#pdf-section div[style*="border: 1px solid rgba(100,255,218"],
+#pdf-section div[style*="border:1px solid rgba(100,255,218"] {
+  border: 1px solid var(--border) !important;
+  background: var(--bg-secondary) !important;
+}
+
+.lyric-line {
+  color: var(--text-secondary);
+}
+
+.lyric-line.active {
+  background: rgba(74, 158, 255, 0.12);
+  color: var(--text-primary);
+}
+
+.lyric-line.section-header {
+  color: var(--text-primary);
+  border-left-color: var(--accent);
+  background: rgba(74, 158, 255, 0.08);
+}
+
+.lyric-line.chorus,
+.lyric-line.highlight,
+.lyric-line.bridge,
+.lyric-line.tech {
+  color: var(--text-primary);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile tightening */
+@media (max-width: 520px) {
+  .navbar {
+    padding: 0 var(--space-md);
+  }
+
+  .navbar-links {
+    gap: var(--space-md);
+  }
+
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+}
