@@ -102,13 +102,12 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
-    height: var(--nav-height);
-    background: rgba(10, 10, 10, 0.85);
+    background: rgba(10, 10, 10, 0.8);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(34, 34, 34, 0.6);
     z-index: 100;
-    padding: 0 var(--space-xl);
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -128,7 +127,7 @@ nav {
 nav ul {
     display: flex;
     list-style: none;
-    gap: var(--space-xl);
+    gap: 2rem;
 }
 
 nav ul a {
@@ -656,19 +655,15 @@ footer {
     }
 
     nav {
-        padding: 0 var(--space-md);
+        padding: 1rem;
     }
 
     nav ul {
-        gap: var(--space-md);
-    }
-
-    nav ul a {
-        font-size: 0.8rem;
+        gap: 1rem;
     }
 
     .hero {
-        padding-top: calc(var(--nav-height) + var(--space-2xl));
+        padding: 5rem 1.5rem 3rem;
     }
 
     .btn-group {
@@ -696,5 +691,3 @@ footer {
         padding: 0 var(--space-md) var(--space-md);
     }
 }
-
-
