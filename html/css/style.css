@@ -691,3 +691,281 @@ footer {
         padding: 0 var(--space-md) var(--space-md);
     }
 }
+
+
+
+/* ===========================================
+   Feed Category Cards (index.html)
+   =========================================== */
+.feed-category {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+}
+
+.feed-category h3 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.feed-list {
+    list-style: none;
+}
+
+.feed-list li {
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feed-list li a:first-child {
+    color: var(--text-secondary);
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.feed-list li a:first-child:hover {
+    color: var(--text-primary);
+}
+
+.feed-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.rss-link, .show-link {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent-dim) !important;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.rss-link:hover, .show-link:hover {
+    opacity: 1;
+    color: var(--accent) !important;
+}
+
+.show-link {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* Live Feeds Section */
+.live-feeds {
+    margin-top: var(--space-xl);
+}
+
+.live-feeds h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.live-feeds .live-indicator {
+    width: 8px;
+    height: 8px;
+    background: var(--success);
+    border-radius: 50%;
+    animation: pulse 2s ease infinite;
+}
+
+.feed-filter-info {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    font-family: var(--font-mono);
+}
+
+.feed-filter-info a {
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.feed-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    min-height: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.feed-items {
+    list-style: none;
+}
+
+.feed-items .feed-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    background: none;
+    border-radius: 0;
+}
+
+.feed-items .feed-item:last-child {
+    border-bottom: none;
+}
+
+.feed-items .feed-item:hover {
+    transform: none;
+}
+
+.feed-item-title {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.feed-item-title:hover {
+    color: var(--accent);
+}
+
+.feed-item-meta {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+}
+
+.feed-item-source {
+    color: var(--accent-dim);
+}
+
+.feed-loading {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+.feed-error {
+    color: var(--error);
+    font-size: 0.85rem;
+    text-align: center;
+    padding: var(--space-xl);
+}
+
+/* ===========================================
+   Star/Particle Controls (index.html)
+   =========================================== */
+#star-controls {
+    border-top: 1px solid var(--border);
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-lg);
+}
+
+.control-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+}
+
+.control-item label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+}
+
+.control-item input[type="range"] {
+    width: 100%;
+    height: 6px;
+    -webkit-appearance: none;
+    background: var(--border);
+    border-radius: 3px;
+    outline: none;
+}
+
+.control-item input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.control-item input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+.control-value {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: right;
+    margin-top: 0.25rem;
+    font-family: var(--font-mono);
+}
+
+/* ===========================================
+   Contact Section (index.html)
+   =========================================== */
+#contact {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding-bottom: var(--space-2xl);
+}
+
+.contact-info {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+    margin-top: var(--space-md);
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ===========================================
+   Dog Image (index.html)
+   =========================================== */
+.dog-image {
+    text-align: center;
+    padding: var(--space-xl);
+    border-top: 1px solid var(--border);
+}
+
+.dog-image img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: var(--radius-md);
+    opacity: 0.9;
+}
