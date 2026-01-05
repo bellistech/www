@@ -51,9 +51,16 @@ const BlogSystem = {
     const category = this.escapeHtml(entry.category || 'post');
     const title = this.escapeHtml(entry.title || '');
     const intro = entry.intro ? this.renderIntro(entry.intro) : '';
-    const content = entry.conversation ? 
-      this.renderConversation(entry.conversation) : 
-      this.renderContent(entry.content || '');
+    
+    // Support conversation, body, or content
+    let content = '';
+    if (entry.conversation) {
+      content = this.renderConversation(entry.conversation);
+    } else if (entry.body) {
+      content = this.renderBody(entry.body);
+    } else if (entry.content) {
+      content = this.renderContent(entry.content);
+    }
 
     return `
       <article class="blog-card" data-index="${idx}">
@@ -120,7 +127,7 @@ const BlogSystem = {
     `;
   },
 
-  // Message content - allow HTML for formatting
+  // Message/body content - allow HTML for formatting
   renderMessageContent(content) {
     if (Array.isArray(content)) {
       let html = '';
@@ -133,14 +140,42 @@ const BlogSystem = {
           const listItems = item.items.map(li => '<li>' + li + '</li>').join('');
           html += item.ordered ? '<ol>' + listItems + '</ol>' : '<ul>' + listItems + '</ul>';
         } else if (item && item.type === 'code') {
-          // Code - escape HTML
-          html += '<code>' + this.escapeHtml(item.text) + '</code>';
+          // Code block - escape HTML, preserve whitespace
+          const lang = item.language ? ` class="language-${this.escapeHtml(item.language)}"` : '';
+          html += `<pre><code${lang}>${this.escapeHtml(item.content || item.text || '')}</code></pre>`;
+        } else if (item && item.type === 'heading') {
+          // Section heading
+          const level = item.level || 2;
+          const tag = level >= 1 && level <= 6 ? `h${level}` : 'h2';
+          html += `<${tag}>${item.text}</${tag}>`;
+        } else if (item && item.type === 'table') {
+          // Table with headers and rows
+          html += '<table class="blog-table"><thead><tr>';
+          (item.headers || []).forEach(h => { html += `<th>${this.escapeHtml(h)}</th>`; });
+          html += '</tr></thead><tbody>';
+          (item.rows || []).forEach(row => {
+            html += '<tr>';
+            row.forEach(cell => { html += `<td>${cell}</td>`; });
+            html += '</tr>';
+          });
+          html += '</tbody></table>';
+        } else if (item && item.type === 'diagram') {
+          // ASCII diagram - preformatted
+          html += `<pre class="ascii-diagram">${this.escapeHtml(item.content)}</pre>`;
+        } else if (item && item.type === 'hr') {
+          html += '<hr>';
         }
       });
       return html;
     }
     // Single string content - allow HTML
     return '<p>' + content + '</p>';
+  },
+
+  // Render body content (for essay-style posts without conversation)
+  renderBody(body) {
+    if (!body) return '';
+    return '<div class="blog-body">' + this.renderMessageContent(body) + '</div>';
   },
 
   toggleCard(header) {

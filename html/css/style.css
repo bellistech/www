@@ -3,6 +3,30 @@
 */
 
 /* ===========================================
+   Fonts (self-hosted mirror from google)
+
+  https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKwBNntkaToggR7BYRbKPxDcwgknk-4.woff2
+  https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2
+
+   =========================================== */
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-style: normal;
+    font-weight: 400 500;
+    font-display: swap;
+    src: url(/fonts/jetbrains-mono-latin.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400 600;
+    font-display: swap;
+    src: url(/fonts/space-grotesk-latin.woff2) format('woff2');
+}
+
+/* ===========================================
    CSS Variables - Single source of truth
    =========================================== */
 :root {
@@ -656,10 +680,16 @@ footer {
 
     nav {
         padding: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     nav ul {
         gap: 1rem;
+    }
+
+    .logo {
+        font-size: 0.85rem;
     }
 
     .hero {

@@ -25,10 +25,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  padding-bottom: 2rem;
 }
 
 /* Blog card */
@@ -270,10 +266,6 @@
     padding: 7rem 1.5rem 2rem;
   }
 
-  .blog-list {
-    padding: 0 1.5rem;
-  }
-
   .blog-card-header {
     padding: 1rem;
   }
@@ -285,4 +277,98 @@
   .blog-card-title {
     font-size: 1rem;
   }
+}
+
+
+/* ===========================================
+   Essay/Tutorial Styles
+   =========================================== */
+.blog-body h2 {
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.blog-body h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 1.5rem 0 0.75rem;
+}
+
+.blog-body pre {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.blog-body pre code {
+    background: none;
+    padding: 0;
+    color: var(--text-primary);
+}
+
+.blog-body code {
+    background: var(--bg-secondary);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+.blog-body .ascii-diagram {
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--accent);
+    white-space: pre;
+    overflow-x: auto;
+}
+
+.blog-body .blog-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+}
+
+.blog-body .blog-table th,
+.blog-body .blog-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid var(--border);
+}
+
+.blog-body .blog-table th {
+    background: var(--bg-secondary);
+    color: var(--accent);
+    font-weight: 500;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.blog-body .blog-table td {
+    background: var(--bg-card);
+}
+
+.blog-body hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+}
+
+.blog-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem;
+    margin: 1rem 0;
+    color: var(--text-secondary);
+    font-style: italic;
 }

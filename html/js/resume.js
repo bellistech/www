@@ -641,9 +641,8 @@
         function showSection(section) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             event.target.classList.add('active');
-            
-            document.getElementById('songs-section').style.display = section === 'songs' ? 'block' : 'none';
             document.getElementById('pdf-section').style.display = section === 'pdf' ? 'block' : 'none'; 
+            document.getElementById('songs-section').style.display = section === 'songs' ? 'block' : 'none';
             document.getElementById('skills-section').style.display = section === 'skills' ? 'block' : 'none';
             document.getElementById('about-section').style.display = section === 'about' ? 'block' : 'none';
         }
