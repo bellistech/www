@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎵 Stevie Bellis' Audio Resume | Platform Engineer & SRE 🎵</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+ 
     <!-- Tone.js for audio synthesis -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
 
@@ -45,10 +46,10 @@
         </div>
 
         <div class="tabs">
-            <button class="tab active" onclick="showSection('pdf')">📄 PDF Resume</button>
-            <button class="tab" onclick="showSection('songs')">🎤🎵 Audio Resume 🎵🎤</button>
-            <button class="tab" onclick="showSection('skills')">💻 Skills</button>
-            <button class="tab" onclick="showSection('about')">ℹ️ About</button>
+            <button class="tab active" onclick="showSection('pdf-section')">📄 PDF Resume</button>
+            <button class="tab" onclick="showSection('songs-section')">🎤🎵 Audio Resume 🎵🎤</button>
+            <button class="tab" onclick="showSection('skills-section')">💻 Skills</button>
+            <button class="tab" onclick="showSection('about-section')">ℹ️ About</button>
         </div>
 
         <div id="songs-section" style="display: none;">

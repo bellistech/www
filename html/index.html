@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>bellis.tech — Stevie Bellis</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000000">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -33,9 +39,9 @@
     <section id="about">
       <h2>About</h2>
       <br><br>
-      <p>&nbsp;Hi I'm Stevie Bellis, professionally I've spent the last 10 years of my career in tech, with the last 7 or so rapturously focused on hybrid datacenter and cloud environments, operating shared infrastructure for enterprise SaaS. Mostly SRE stuff. Focused primarily on networking, security, Linux systems, and building automation and backend tooling to support customer facing production environments.
+      <p>Hi I'm Stevie Bellis, professionally I've spent the last 10 years of my career in tech, with the last 7 or so rapturously focused on hybrid datacenter and cloud environments, operating shared infrastructure for enterprise SaaS. Mostly SRE stuff. Focused primarily on networking, security, Linux systems, and building automation and backend tooling to support customer facing production environments.
       <br><br>
-      &nbsp;Unprofessionally I like riding bicycles, hiking, live music, rock climbing/bouldering, swiming in warm and hot water, camping, my cat and dog.
+      Unprofessionally I like riding bicycles, hiking, live music, rock climbing/bouldering, swiming in warm and hot water, camping, my cat and dog.
       <br><br>
       <br><br>
       <!--Please hack this site or server, I'm bored. -->
@@ -98,7 +104,27 @@
   </main>
 
   <div class="dog-image">
-    <img src="https://bellis.tech/assets/img_1337.png" alt="">
+    <picture>
+  <source
+    type="image/avif"
+    srcset="/img/dog_160w.avif 160w, /img/dog_240w.avif 240w, /img/dog_300w.avif 300w"
+    sizes="(max-width: 360px) 160px, (max-width: 520px) 240px, 300px"
+  />
+  <source
+    type="image/webp"
+    srcset="/img/dog_160w.webp 160w, /img/dog_240w.webp 240w, /img/dog_300w.webp 300w"
+    sizes="(max-width: 360px) 160px, (max-width: 520px) 240px, 300px"
+  />
+  <img
+    src="/img/dog_300w.jpg"
+    width="300"
+    height="650"
+    loading="lazy"
+    decoding="async"
+    alt="Dog with orange-and-blue ball"
+  />
+  </picture>
+ 
   </div>
 
   <footer>Stevie Bellis • System Operations Human</footer>
