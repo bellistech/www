@@ -638,14 +638,63 @@
         // UI HELPERS
         // ═══════════════════════════════════════════════════════════════════
 
-        function showSection(section) {
+        function showSection(section, btn) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
+            if (btn) btn.classList.add('active');
             document.getElementById('pdf-section').style.display = section === 'pdf' ? 'block' : 'none'; 
             document.getElementById('songs-section').style.display = section === 'songs' ? 'block' : 'none';
             document.getElementById('skills-section').style.display = section === 'skills' ? 'block' : 'none';
             document.getElementById('about-section').style.display = section === 'about' ? 'block' : 'none';
         }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // EVENT LISTENER INITIALIZATION (CSP-compliant - no inline handlers)
+        // ═══════════════════════════════════════════════════════════════════
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab navigation
+            document.querySelectorAll('.tab[data-section]').forEach(tab => {
+                tab.addEventListener('click', () => showSection(tab.dataset.section, tab));
+            });
+
+            // Song buttons
+            document.querySelectorAll('[data-song][data-mode]').forEach(btn => {
+                btn.addEventListener('click', () => startSong(btn.dataset.song, btn.dataset.mode));
+            });
+
+            // Player controls
+            const closePlayerBtn = document.getElementById('closePlayerBtn');
+            if (closePlayerBtn) closePlayerBtn.addEventListener('click', closePlayer);
+
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            if (playPauseBtn) playPauseBtn.addEventListener('click', togglePlayPause);
+
+            const restartBtn = document.getElementById('restartBtn');
+            if (restartBtn) restartBtn.addEventListener('click', restartSong);
+
+            const stopBtn = document.getElementById('stopBtn');
+            if (stopBtn) stopBtn.addEventListener('click', stopSong);
+
+            // Progress bar seek
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) progressBar.addEventListener('click', seekTo);
+
+            // Voice settings
+            const voiceSelect = document.getElementById('voiceSelect');
+            if (voiceSelect) voiceSelect.addEventListener('change', setVoice);
+
+            const pitchSlider = document.getElementById('pitchSlider');
+            if (pitchSlider) pitchSlider.addEventListener('input', (e) => setPitch(e.target.value));
+
+            const rateSlider = document.getElementById('rateSlider');
+            if (rateSlider) rateSlider.addEventListener('input', (e) => setRate(e.target.value));
+
+            // Volume and tempo sliders
+            const volumeSlider = document.getElementById('volumeSlider');
+            if (volumeSlider) volumeSlider.addEventListener('input', (e) => setVolume(e.target.value));
+
+            const tempoSlider = document.getElementById('tempoSlider');
+            if (tempoSlider) tempoSlider.addEventListener('input', (e) => setTempo(e.target.value));
+        });
 
         function floatNote(emoji) {
             const el = document.createElement('div');

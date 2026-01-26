@@ -11,8 +11,8 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#000000">
  
-    <!-- Tone.js for audio synthesis -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+    <!-- Tone.js for audio synthesis (self-hosted for CSP compliance) -->
+    <script src="/js/Tone.min.js"></script>
 
     <!-- Styles: site base first, then resume theme overrides -->
     <link rel="stylesheet" href="/css/style.css">
@@ -46,10 +46,10 @@
         </div>
 
         <div class="tabs">
-            <button class="tab active" onclick="showSection('pdf-section')">📄 PDF Resume</button>
-            <button class="tab" onclick="showSection('songs-section')">🎤🎵 Audio Resume 🎵🎤</button>
-            <button class="tab" onclick="showSection('skills-section')">💻 Skills</button>
-            <button class="tab" onclick="showSection('about-section')">ℹ️ About</button>
+            <button class="tab active" data-section="pdf">📄 PDF Resume</button>
+            <button class="tab" data-section="songs">🎤🎵 Audio Resume 🎵🎤</button>
+            <button class="tab" data-section="skills">💻 Skills</button>
+            <button class="tab" data-section="about">ℹ️ About</button>
         </div>
 
         <div id="songs-section" style="display: none;">
@@ -64,9 +64,9 @@
                         <span class="meta-tag">📈 Career Story</span>
                     </div>
                     <div class="song-buttons">
-                        <button class="btn btn-play" onclick="startSong('journey', 'instrumental')">🎸 Instrumental</button>
-                        <button class="btn btn-vocals" onclick="startSong('journey', 'vocals')">🎤 With Vocals</button>
-                        <button class="btn btn-lyrics" onclick="startSong('journey', 'lyrics')">📜 Lyrics Only</button>
+                        <button class="btn btn-play" data-song="journey" data-mode="instrumental">🎸 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="journey" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="journey" data-mode="lyrics">📜 Lyrics Only</button>
                     </div>
                 </div>
 
@@ -80,9 +80,9 @@
                         <span class="meta-tag">🛠️ Tech Skills</span>
                     </div>
                     <div class="song-buttons">
-                        <button class="btn btn-play" onclick="startSong('techstack', 'instrumental')">🎹 Instrumental</button>
-                        <button class="btn btn-vocals" onclick="startSong('techstack', 'vocals')">🎤 With Vocals</button>
-                        <button class="btn btn-lyrics" onclick="startSong('techstack', 'lyrics')">📜 Lyrics Only</button>
+                        <button class="btn btn-play" data-song="techstack" data-mode="instrumental">🎹 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="techstack" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="techstack" data-mode="lyrics">📜 Lyrics Only</button>
                     </div>
                 </div>
 
@@ -96,9 +96,9 @@
                         <span class="meta-tag">✨ Positivity</span>
                     </div>
                     <div class="song-buttons">
-                        <button class="btn btn-play" onclick="startSong('shiningstar', 'instrumental')">🎷 Instrumental</button>
-                        <button class="btn btn-vocals" onclick="startSong('shiningstar', 'vocals')">🎤 With Vocals</button>
-                        <button class="btn btn-lyrics" onclick="startSong('shiningstar', 'lyrics')">📜 Lyrics Only</button>
+                        <button class="btn btn-play" data-song="shiningstar" data-mode="instrumental">🎷 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="shiningstar" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="shiningstar" data-mode="lyrics">📜 Lyrics Only</button>
                     </div>
                 </div>
 
@@ -112,9 +112,9 @@
                         <span class="meta-tag">🧠 Philosophy</span>
                     </div>
                     <div class="song-buttons">
-                        <button class="btn btn-play" onclick="startSong('dharma', 'instrumental')">🤘 Instrumental</button>
-                        <button class="btn btn-vocals" onclick="startSong('dharma', 'vocals')">🎤 With Vocals</button>
-                        <button class="btn btn-lyrics" onclick="startSong('dharma', 'lyrics')">📜 Lyrics Only</button>
+                        <button class="btn btn-play" data-song="dharma" data-mode="instrumental">🤘 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="dharma" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="dharma" data-mode="lyrics">📜 Lyrics Only</button>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     </a>
                 </div>
                 <div style="background: rgba(0,0,0,0.3); border-radius: 15px; overflow: hidden; border: 1px solid rgba(100,255,218,0.2);">
-                    <iframe src="https://bellis.tech/Stevie_Bellis_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width: 100%; height: 800px; border: none;" title="Resume PDF"></iframe>
+                    <iframe src="/Stevie_Bellis_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width: 100%; height: 800px; border: none;" title="Resume PDF"></iframe>
                 </div>
                 <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 15px; text-align: center;">
                     <em>If the PDF doesn't display, click the download button above or 
@@ -249,7 +249,7 @@
                     Operating shared platform infrastructure supporting production services across hybrid data centers and AWS.<br><br>
                     <strong style="color: var(--accent-tertiary);">Looking For:</strong><br>
                     positions in Network Engineering, SRE, DevOps, or Network Automation<br><br>
-                    <em style="color: var(--text-secondary);">This jukebox features live audio synthesis with Yotam Mann's <a href="https://github.com/Tonejs/Tone.js" style="color: var(--accent-primary);">Tone.js</a> and text-to-speech vocals using the Web Speech API. No pre-recorded files!</em>
+                    <em style="color: var(--text-secondary);">This jukebox features live audio synthesis with Yotam Mann's <a href="https://github.com/Tonejs/Tone.js" style="color: var(--accent-primary);">Tone.js</a> and text-to-speech vocals using the Web Speech API.</em>
                 </p>
             </div>
         </div>
@@ -264,7 +264,7 @@
                         <p id="playerSubtitle">Genre • Tempo</p>
                     </div>
                 </div>
-                <button class="close-player" onclick="closePlayer()">✕</button>
+                <button class="close-player" id="closePlayerBtn">✕</button>
             </div>
 
             <div class="mode-indicator" id="modeIndicator">🎵 Music Mode</div>
@@ -273,15 +273,15 @@
                 <h4>🎤 Voice Settings</h4>
                 <div class="voice-row">
                     <label>Voice:</label>
-                    <select id="voiceSelect" onchange="setVoice()"></select>
+                    <select id="voiceSelect"></select>
                     <div class="slider-group">
                         <label>Pitch</label>
-                        <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1" oninput="setPitch(this.value)">
+                        <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1">
                         <span class="slider-value" id="pitchValue">1.0</span>
                     </div>
                     <div class="slider-group">
                         <label>Rate</label>
-                        <input type="range" id="rateSlider" min="0.5" max="1.5" step="0.1" value="0.9" oninput="setRate(this.value)">
+                        <input type="range" id="rateSlider" min="0.5" max="1.5" step="0.1" value="0.9">
                         <span class="slider-value" id="rateValue">0.9</span>
                     </div>
                 </div>
@@ -306,7 +306,7 @@
             </div>
 
             <div class="progress-container">
-                <div class="progress-bar" onclick="seekTo(event)">
+                <div class="progress-bar" id="progressBar">
                     <div class="progress-fill" id="progressFill"></div>
                 </div>
                 <div class="time-display">
@@ -316,20 +316,20 @@
             </div>
 
             <div class="controls-row">
-                <button class="control-btn secondary" onclick="restartSong()">⏮️</button>
-                <button class="control-btn play-pause" id="playPauseBtn" onclick="togglePlayPause()">▶️</button>
-                <button class="control-btn secondary" onclick="stopSong()">⏹️</button>
+                <button class="control-btn secondary" id="restartBtn">⏮️</button>
+                <button class="control-btn play-pause" id="playPauseBtn">▶️</button>
+                <button class="control-btn secondary" id="stopBtn">⏹️</button>
             </div>
 
             <div class="sliders-row">
                 <div class="slider-group">
                     <label>🔊 Volume</label>
-                    <input type="range" id="volumeSlider" min="0" max="100" value="70" oninput="setVolume(this.value)">
+                    <input type="range" id="volumeSlider" min="0" max="100" value="70">
                     <span class="slider-value" id="volumeValue">70%</span>
                 </div>
                 <div class="slider-group">
                     <label>⏱️ Tempo</label>
-                    <input type="range" id="tempoSlider" min="50" max="150" value="100" oninput="setTempo(this.value)">
+                    <input type="range" id="tempoSlider" min="50" max="150" value="100">
                     <span class="slider-value" id="tempoValue">100%</span>
                 </div>
             </div>
