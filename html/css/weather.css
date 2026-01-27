@@ -1,0 +1,227 @@
+/* ===========================================
+   Weather Module
+   =========================================== */
+
+.weather-section {
+    border-top: 1px solid var(--border);
+}
+
+.weather-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.92), rgba(14, 14, 14, 0.98));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    width: 100%;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+}
+
+.weather-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: var(--space-lg);
+    align-items: start;
+}
+
+.weather-main {
+    min-width: 0;
+}
+
+.weather-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+}
+
+.weather-now {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.35rem 1rem;
+    align-items: baseline;
+    margin-top: var(--space-md);
+}
+
+.weather-now .temp {
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.weather-now .desc {
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.weather-now .range {
+    grid-column: 2 / 3;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+}
+
+.weather-list {
+    list-style: none;
+    margin-top: var(--space-md);
+    display: grid;
+    gap: 0.4rem;
+}
+
+.weather-list li {
+    display: grid;
+    grid-template-columns: 56px 1fr 82px;
+    gap: var(--space-sm);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.weather-list li:last-child {
+    border-bottom: none;
+}
+
+.weather-list .day {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.weather-list .range {
+    color: var(--text-primary);
+}
+
+.weather-list .cond {
+    text-align: right;
+    color: var(--text-secondary);
+}
+
+.weather-hourly {
+    border-left: 1px solid var(--border);
+    padding-left: var(--space-lg);
+}
+
+.hourly-head {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+
+.hourly-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.hourly-slot {
+    display: grid;
+    gap: 0.2rem;
+    min-width: 72px;
+    padding: 0.3rem 0;
+}
+
+.hourly-slot .time {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.68rem;
+    color: var(--text-secondary);
+}
+
+.hourly-slot .temp {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.hourly-slot .icon {
+    color: var(--text-secondary);
+}
+
+.weather-feed {
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: rgba(16, 16, 16, 0.6);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+}
+
+.weather-feed .tag {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
+.weather-feed a {
+    color: var(--text-secondary);
+}
+
+.weather-feed a:hover {
+    color: var(--text-primary);
+}
+
+@media (max-width: 640px) {
+    .weather-card {
+        padding: var(--space-md);
+    }
+
+    .weather-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .weather-now {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-now .range {
+        grid-column: 1 / 2;
+    }
+
+    .weather-list li {
+        grid-template-columns: 48px 1fr;
+    }
+
+    .weather-list .cond {
+        grid-column: 2 / 3;
+        text-align: left;
+    }
+
+    .weather-hourly {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid var(--border);
+        padding-top: var(--space-md);
+    }
+
+    .hourly-row {
+        gap: var(--space-xs);
+    }
+
+    .hourly-slot {
+        min-width: 64px;
+    }
+}

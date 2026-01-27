@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Module Test — Austin, TX</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/weather.css">
+  <style>
+    body {
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(74, 158, 255, 0.08), transparent 60%),
+        radial-gradient(700px 600px at 100% 10%, rgba(255, 255, 255, 0.03), transparent 55%),
+        var(--bg-primary);
+    }
+
+    .demo-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem 4rem;
+    }
+
+    .page-header {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .page-header h1 {
+      font-weight: 500;
+    }
+
+    .page-header .subtitle {
+      max-width: 520px;
+    }
+    @media (max-width: 640px) {
+      .demo-wrap {
+        padding: 4.5rem 1.25rem 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="demo-wrap">
+    <header class="page-header">
+      <h1>Ultra‑minimal weather</h1>
+      <p class="subtitle">RSS‑like forecast module for Austin, Texas. Static data here for aesthetic testing.</p>
+    </header>
+
+    <section class="weather-card" aria-label="Austin weather snapshot" data-weather>
+      <div class="weather-layout">
+        <div class="weather-main">
+          <div class="weather-head">
+            <span data-weather-location>Austin, TX</span>
+            <span data-weather-updated>Updated 07:32 CST</span>
+          </div>
+
+          <div class="weather-now">
+            <div class="temp" data-weather-now-temp>72°</div>
+            <div class="desc" data-weather-now-desc>Clear ☀️</div>
+            <div class="range" data-weather-now-range>H 78° / L 56° · 0% precip</div>
+          </div>
+
+          <ul class="weather-list" data-weather-daily>
+            <li><span class="day">Mon</span><span class="range">78° / 56°</span><span class="cond">Clear ☀️</span></li>
+            <li><span class="day">Tue</span><span class="range">80° / 58°</span><span class="cond">Wind ☁️</span></li>
+            <li><span class="day">Wed</span><span class="range">76° / 54°</span><span class="cond">Clouds ☁️</span></li>
+            <li><span class="day">Thu</span><span class="range">74° / 52°</span><span class="cond">Light Rain 🌧️</span></li>
+          </ul>
+        </div>
+
+        <div class="weather-hourly">
+          <div class="hourly-head">
+            <span>Today · Hourly</span>
+            <span>Local</span>
+          </div>
+          <div class="hourly-row" data-weather-hourly role="list">
+            <div class="hourly-slot" role="listitem"><span class="time">2am</span><span class="temp">63°</span><span class="icon">☁️</span></div>
+            <div class="hourly-slot" role="listitem"><span class="time">6am</span><span class="temp">66°</span><span class="icon">☁️</span></div>
+            <div class="hourly-slot" role="listitem"><span class="time">10am</span><span class="temp">72°</span><span class="icon">☀️</span></div>
+            <div class="hourly-slot" role="listitem"><span class="time">2pm</span><span class="temp">78°</span><span class="icon">☀️</span></div>
+            <div class="hourly-slot" role="listitem"><span class="time">6pm</span><span class="temp">73°</span><span class="icon">☁️</span></div>
+            <div class="hourly-slot" role="listitem"><span class="time">10pm</span><span class="temp">68°</span><span class="icon">☁️</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="weather-feed">
+        <span class="tag">feed</span>
+        <span data-weather-feed>/weather/weather_forecast.json</span>
+        <a href="/weather/weather_forecast.json" data-weather-feed-link aria-label="Weather feed JSON">json</a>
+      </div>
+    </section>
+  </main>
+  <script src="js/weather.js"></script>
+</body>
+</html>

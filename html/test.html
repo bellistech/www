@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Module Test — Austin, TX</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --weather-glow: rgba(74, 158, 255, 0.12);
+    }
+
+    body {
+      background:
+        radial-gradient(900px 500px at 10% -10%, rgba(74, 158, 255, 0.08), transparent 60%),
+        radial-gradient(700px 600px at 100% 10%, rgba(255, 255, 255, 0.03), transparent 55%),
+        var(--bg-primary);
+    }
+
+    .demo-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 5.5rem 1.5rem 4rem;
+    }
+
+    .page-header {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .page-header h1 {
+      font-weight: 500;
+    }
+
+    .page-header .subtitle {
+      max-width: 520px;
+    }
+
+    .weather-card {
+      position: relative;
+      background: linear-gradient(140deg, rgba(26, 26, 26, 0.9), rgba(16, 16, 16, 0.95));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .weather-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(300px 120px at 15% 0%, var(--weather-glow), transparent 60%);
+      pointer-events: none;
+    }
+
+    .weather-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-md);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+    }
+
+    .weather-now {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.35rem 1.5rem;
+      align-items: baseline;
+      margin-top: var(--space-xl);
+    }
+
+    .weather-now .temp {
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .weather-now .desc {
+      font-size: 1.15rem;
+      color: var(--text-primary);
+    }
+
+    .weather-now .range {
+      grid-column: 2 / 3;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .weather-list {
+      list-style: none;
+      margin-top: var(--space-xl);
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .weather-list li {
+      display: grid;
+      grid-template-columns: 64px 1fr 70px;
+      gap: var(--space-md);
+      padding: 0.35rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .weather-list li:last-child {
+      border-bottom: none;
+    }
+
+    .weather-list .day {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+    }
+
+    .weather-list .range {
+      color: var(--text-primary);
+    }
+
+    .weather-list .cond {
+      text-align: right;
+      color: var(--text-secondary);
+    }
+
+    .weather-feed {
+      margin-top: var(--space-2xl);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: rgba(16, 16, 16, 0.6);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    .weather-feed .tag {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .weather-feed a {
+      color: var(--text-secondary);
+    }
+
+    .weather-feed a:hover {
+      color: var(--text-primary);
+    }
+
+    @media (max-width: 640px) {
+      .demo-wrap {
+        padding: 4.5rem 1.25rem 3.5rem;
+      }
+
+      .weather-card {
+        padding: var(--space-lg);
+      }
+
+      .weather-now {
+        grid-template-columns: 1fr;
+      }
+
+      .weather-now .range {
+        grid-column: 1 / 2;
+      }
+
+      .weather-list li {
+        grid-template-columns: 52px 1fr;
+      }
+
+      .weather-list .cond {
+        grid-column: 2 / 3;
+        text-align: left;
+        color: var(--text-secondary);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="demo-wrap">
+    <header class="page-header">
+      <h1>Ultra‑minimal weather</h1>
+      <p class="subtitle">RSS‑like forecast module for Austin, Texas. Static data here for aesthetic testing.</p>
+    </header>
+
+    <section class="weather-card" aria-label="Austin weather snapshot">
+      <div class="weather-head">
+        <span>Austin, TX</span>
+        <span>Updated 07:32 CST</span>
+      </div>
+
+      <div class="weather-now">
+        <div class="temp">72°</div>
+        <div class="desc">Clear</div>
+        <div class="range">H 78° / L 56° · 0% precip</div>
+      </div>
+
+      <ul class="weather-list">
+        <li><span class="day">Mon</span><span class="range">78° / 56°</span><span class="cond">Clear</span></li>
+        <li><span class="day">Tue</span><span class="range">80° / 58°</span><span class="cond">Wind</span></li>
+        <li><span class="day">Wed</span><span class="range">76° / 54°</span><span class="cond">Clouds</span></li>
+        <li><span class="day">Thu</span><span class="range">74° / 52°</span><span class="cond">Light Rain</span></li>
+      </ul>
+    </section>
+
+    <div class="weather-feed">
+      <span class="tag">feed</span>
+      <span>/weather/austin.json</span>
+      <a href="#" aria-label="RSS feed placeholder">rss</a>
+    </div>
+  </main>
+</body>
+</html>
+
