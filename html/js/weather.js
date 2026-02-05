@@ -1,5 +1,5 @@
 (() => {
-  const WEATHER_URL = '/weather/weather_forecast.json';
+  const WEATHER_URL = '/weather_cache_n_fetch/weather_forecast.json';
   const REFRESH_INTERVAL_MS = 30 * 1000;
   const root = document.querySelector('[data-weather]');
   if (!root) return;
@@ -184,3 +184,4 @@
     scheduleRefresh();
   }
 })();
+
