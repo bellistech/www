@@ -1,0 +1,20 @@
+# local git backup folders (DO NOT COMMIT)
+.git.bak.*
+
+# generated / local cache
+html/rss_cache_n_fetch/cache
+
+# huge local-only file (GitHub blocks >100MB)
+html/assets/bots.txt
+
+# temp
+html/Stevie_Bellis_Apple_Compute_SRE.pdf
+html/Stevie_Bellis_Apple_DevOps_GSE.pdf
+
+# backups
+html/css/weather.css.bak
+html/index.html.bak
+
+# weather cache/fetch scripts
+html/weather_cache_n_fetch
+.DS_Store

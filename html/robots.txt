@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# If you have non-public or noisy endpoints, you can disallow them here.
+# (Your RSS cache JSON is probably fine to index, but it can be “crawler bait”.)
+Disallow: /rss_cache_n_fetch/
+
+# Optional: if you have an admin area someday
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /assets/
+Disallow: /data/
+Disallow: /rss_cache_n_fetch/
+Disallow: /rss_config/
+Disallow: /js/
+Disallow: /css/
+
+# Sitemap (recommended if you have one)
+Sitemap: https://bellis.tech/sitemap.xml
+

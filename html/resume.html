@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Stevie Bellis' Audio Resume | Platform Engineer & SRE 🎵</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#000000">
+ 
+    <!-- Tone.js for audio synthesis (self-hosted for CSP compliance) -->
+    <script src="/js/Tone.min.js"></script>
+
+    <!-- Styles: site base first, then resume theme overrides -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/resume.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="/" class="logo"><span>(B)</span>ELLIS TECH • System Operations Human</a>
+        <ul>
+            <li><a href="/blog.html">blog</a></li>
+            <li><a href="/#about">about</a></li>
+            <li><a href="/#contact">contact</a></li>
+	    <li><a href="resume.html">resume</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h1>Stevie Bellis</h1>
+            <p class="subtitle">Platform Engineer | Site Reliability Engineer | Infrastructure Engineer</p>
+            <p class="tagline">7+ years operating shared infrastructure for enterprise SaaS</p>
+            <div class="contact-bar">
+                <a href="https://bellis.tech" class="contact-item" target="_blank">🌐 bellis.tech</a>
+                <span class="contact-item">📍 Austin, TX</span>
+                <a href="mailto:stevie@bellis.tech" class="contact-item">✉️ stevie@bellis.tech</a>
+                <a href="https://linkedin.com/in/steviebellis" class="contact-item" target="_blank">💼 LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="tabs">
+            <button class="tab active" data-section="pdf">📄 PDF Resume</button>
+            <button class="tab" data-section="songs">🎤🎵 Audio Resume 🎵🎤</button>
+            <button class="tab" data-section="skills">💻 Skills</button>
+            <button class="tab" data-section="about">ℹ️ About</button>
+        </div>
+
+        <div id="songs-section" style="display: none;">
+            <div class="song-cards">
+                <!-- The Journey Song -->
+                <div class="song-card journey">
+                    <h2>🚀 The SRE Journey</h2>
+                    <p>A folk ballad tracing a decade of infrastructure excellence—from help desk hustle to principal-level platform engineering at scale.</p>
+                    <div class="song-meta">
+                        <span class="meta-tag">🎸 Folk/Country</span>
+                        <span class="meta-tag">⏱️ ~2:30</span>
+                        <span class="meta-tag">📈 Career Story</span>
+                    </div>
+                    <div class="song-buttons">
+                        <button class="btn btn-play" data-song="journey" data-mode="instrumental">🎸 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="journey" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="journey" data-mode="lyrics">📜 Lyrics Only</button>
+                    </div>
+                </div>
+
+                <!-- The Skills Epic -->
+                <div class="song-card skills">
+                    <h2>⚡ Stack Overflow (The Tech Stack Anthem)</h2>
+                    <p>A Queen-style rock opera showcasing the full technical arsenal—from BGP fabrics to Kubernetes orchestration, automation to security.</p>
+                    <div class="song-meta">
+                        <span class="meta-tag">🎹 Rock Opera</span>
+                        <span class="meta-tag">⏱️ ~3:30</span>
+                        <span class="meta-tag">🛠️ Tech Skills</span>
+                    </div>
+                    <div class="song-buttons">
+                        <button class="btn btn-play" data-song="techstack" data-mode="instrumental">🎹 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="techstack" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="techstack" data-mode="lyrics">📜 Lyrics Only</button>
+                    </div>
+                </div>
+
+                <!-- Shining Star - Jerry Garcia Band Inspired -->
+                <div class="song-card shiningstar">
+                    <h2>☀️ Shining Through (The Uptime Groove)</h2>
+                    <p>A funky, soulful jam inspired by Jerry Garcia Band vibes—celebrating the joy of systems that just work, and the engineers who make it happen.</p>
+                    <div class="song-meta">
+                        <span class="meta-tag">🎷 Funk/Soul</span>
+                        <span class="meta-tag">⏱️ ~2:45</span>
+                        <span class="meta-tag">✨ Positivity</span>
+                    </div>
+                    <div class="song-buttons">
+                        <button class="btn btn-play" data-song="shiningstar" data-mode="instrumental">🎷 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="shiningstar" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="shiningstar" data-mode="lyrics">📜 Lyrics Only</button>
+                    </div>
+                </div>
+
+                <!-- Dharma Thrash - King Gizzard + Blog Inspired -->
+                <div class="song-card dharma">
+                    <h2>🔥 Dharma in the Machine</h2>
+                    <p>A thrashing, philosophical anthem inspired by King Gizzard's Infest the Rats' Nest—on consciousness, code, and the pull toward truth in a world of frozen weights.</p>
+                    <div class="song-meta">
+                        <span class="meta-tag">🤘 Thrash Metal</span>
+                        <span class="meta-tag">⏱️ ~2:15</span>
+                        <span class="meta-tag">🧠 Philosophy</span>
+                    </div>
+                    <div class="song-buttons">
+                        <button class="btn btn-play" data-song="dharma" data-mode="instrumental">🤘 Instrumental</button>
+                        <button class="btn btn-vocals" data-song="dharma" data-mode="vocals">🎤 With Vocals</button>
+                        <button class="btn btn-lyrics" data-song="dharma" data-mode="lyrics">📜 Lyrics Only</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="pdf-section">
+            <div class="song-card" style="max-width: 900px; margin: 0 auto; padding: 20px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="color: var(--accent-primary); margin: 0;">📄 Traditional Resume</h2>
+                    <a href="https://bellis.tech/Stevie_Bellis_Resume.pdf" download class="btn btn-play" style="text-decoration: none;">
+                        ⬇️ Download PDF
+                    </a>
+                </div>
+                <div style="background: rgba(0,0,0,0.3); border-radius: 15px; overflow: hidden; border: 1px solid rgba(100,255,218,0.2);">
+                    <iframe src="/Stevie_Bellis_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0" style="width: 100%; height: 800px; border: none;" title="Resume PDF"></iframe>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: 15px; text-align: center;">
+                    <em>If the PDF doesn't display, click the download button above or 
+                    <a href="https://bellis.tech/Stevie_Bellis_Resume.pdf" target="_blank" style="color: var(--accent-primary);">open in new tab</a>.</em>
+                </p>
+            </div>
+        </div>
+
+        <div id="skills-section" style="display: none;">
+            <div class="song-card" style="max-width: 900px; margin: 0 auto;">
+                <h2 style="color: var(--accent-primary); margin-bottom: 20px;">💻 Core Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>🐧 Systems</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Linux (Rocky/RHEL, CentOS, Ubuntu)</span>
+                            <span class="skill-tag">Troubleshooting</span>
+                            <span class="skill-tag">Runbooks</span>
+                            <span class="skill-tag">Incident Response</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>⚙️ Automation/IaC</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Puppet</span>
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Jenkins</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Ruby</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🌐 Networking</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">BGP</span>
+                            <span class="skill-tag">EVPN/VXLAN</span>
+                            <span class="skill-tag">TCP/IP (IPv4/IPv6)</span>
+                            <span class="skill-tag">DNS</span>
+                            <span class="skill-tag">TLS</span>
+                            <span class="skill-tag">OSPF/MPLS</span>
+                            <span class="skill-tag">Juniper MX/EX/QFX</span>
+                            <span class="skill-tag">FRR/BIRD</span>
+                            <span class="skill-tag">WireGuard/VPN</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>☁️ Cloud & Containers</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS (VPC, EC2, RDS, IAM, CloudWatch)</span>
+                            <span class="skill-tag">Direct Connect</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">LXC/LXD</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>📊 Observability</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Grafana</span>
+                            <span class="skill-tag">Prometheus</span>
+                            <span class="skill-tag">CloudWatch</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🔀 Traffic/Proxy</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HAProxy</span>
+                            <span class="skill-tag">Nginx</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🗄️ Data/Security</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Oracle</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">IAM/SSO (SAML/OAuth)</span>
+                            <span class="skill-tag">OpenLDAP</span>
+                            <span class="skill-tag">SOC 2/NIST</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>🏗️ Data Center</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Racking/Cabling</span>
+                            <span class="skill-tag">Cross-connect/MMR</span>
+                            <span class="skill-tag">Hot/Cold Aisle</span>
+                            <span class="skill-tag">UPS Environments</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>📚 Familiarity</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Terraform</span>
+                            <span class="skill-tag">Ansible</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">Go</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-section" style="display: none;">
+            <div class="song-card" style="max-width: 800px; margin: 0 auto;">
+                <h2 style="color: var(--accent-primary);">About This Audio Resume</h2>
+                <p style="color: var(--text-primary); line-height: 1.9; margin-top: 15px;">
+                    <strong style="color: var(--accent-primary);">Summary:</strong><br>
+                    SRE/Platform Engineer with 7+ years operating shared infrastructure for enterprise SaaS across hybrid data centers and AWS (10 years total IT). Automation-first (Puppet + Python/Bash) with strong Linux fundamentals, incident response, and runbook-driven operations.<br><br>
+                    <strong style="color: var(--accent-secondary);">Key Achievements:</strong><br>
+                    • Automated customer provisioning: reduced onboarding from hours to minutes while maintaining SOC 2 baselines<br>
+                    • Led TB-scale migration to AWS RDS with zero data loss and minimal downtime<br>
+                    • Reduced AWS spend ~30% via Reserved Instances, Savings Plans, and lifecycle policies<br>
+                    • Deployed multi-datacenter network fabric (BGP EVPN/VXLAN) supporting 1,000+ systems with 99.9%+ uptime<br><br>
+                    <strong style="color: var(--accent-gold);">Previous Role:</strong><br>
+                    System Administrator (Platform/SRE) & Cybersecurity Professional at Supplyframe (Dec 2017 - Apr 2025)<br>
+                    Operating shared platform infrastructure supporting production services across hybrid data centers and AWS.<br><br>
+                    <strong style="color: var(--accent-tertiary);">Looking For:</strong><br>
+                    positions in Network Engineering, SRE, DevOps, or Network Automation<br><br>
+                    <em style="color: var(--text-secondary);">This jukebox features live audio synthesis with Yotam Mann's <a href="https://github.com/Tonejs/Tone.js" style="color: var(--accent-primary);">Tone.js</a> and text-to-speech vocals using the Web Speech API.</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- Player Section -->
+        <div id="player-section" class="player-section">
+            <div class="player-header">
+                <div class="now-playing">
+                    <div class="album-art" id="albumArt">🚀</div>
+                    <div class="song-info">
+                        <h3 id="playerTitle">Now Playing</h3>
+                        <p id="playerSubtitle">Genre • Tempo</p>
+                    </div>
+                </div>
+                <button class="close-player" id="closePlayerBtn">✕</button>
+            </div>
+
+            <div class="mode-indicator" id="modeIndicator">🎵 Music Mode</div>
+
+            <div class="voice-settings" id="voiceSettings" style="display: none;">
+                <h4>🎤 Voice Settings</h4>
+                <div class="voice-row">
+                    <label>Voice:</label>
+                    <select id="voiceSelect"></select>
+                    <div class="slider-group">
+                        <label>Pitch</label>
+                        <input type="range" id="pitchSlider" min="0.5" max="2" step="0.1" value="1">
+                        <span class="slider-value" id="pitchValue">1.0</span>
+                    </div>
+                    <div class="slider-group">
+                        <label>Rate</label>
+                        <input type="range" id="rateSlider" min="0.5" max="1.5" step="0.1" value="0.9">
+                        <span class="slider-value" id="rateValue">0.9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vocal-indicator" id="vocalIndicator" style="display: none;">
+                <div class="vocal-wave">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <span id="vocalStatus">Ready to sing...</span>
+            </div>
+
+            <div class="instruments" id="instrumentsDisplay">
+                <div class="instrument" id="inst-melody"><span class="instrument-dot"></span> Melody</div>
+                <div class="instrument" id="inst-chords"><span class="instrument-dot"></span> Chords</div>
+                <div class="instrument" id="inst-bass"><span class="instrument-dot"></span> Bass</div>
+                <div class="instrument" id="inst-drums"><span class="instrument-dot"></span> Drums</div>
+            </div>
+
+            <div class="visualizer-container">
+                <div class="visualizer" id="visualizer"></div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="totalTime">0:00</span>
+                </div>
+            </div>
+
+            <div class="controls-row">
+                <button class="control-btn secondary" id="restartBtn">⏮️</button>
+                <button class="control-btn play-pause" id="playPauseBtn">▶️</button>
+                <button class="control-btn secondary" id="stopBtn">⏹️</button>
+            </div>
+
+            <div class="sliders-row">
+                <div class="slider-group">
+                    <label>🔊 Volume</label>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                    <span class="slider-value" id="volumeValue">70%</span>
+                </div>
+                <div class="slider-group">
+                    <label>⏱️ Tempo</label>
+                    <input type="range" id="tempoSlider" min="50" max="150" value="100">
+                    <span class="slider-value" id="tempoValue">100%</span>
+                </div>
+            </div>
+
+            <div class="lyrics-container" id="lyricsContainer"></div>
+        </div>
+    </div>
+
+
+    <footer>
+        Stevie Bellis • System Operations Human
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/resume.js"></script>
+</body>
+</html>

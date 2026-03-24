@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bellis.tech — Stevie Bellis</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/weather.css">
+</head>
+<body>
+  <canvas id="particle-canvas"></canvas>
+  
+  <nav>
+    <a href="/" class="logo"><span>(B)</span>ELLIS TECH • System Operations Human</a>
+    <ul>
+      <li><a href="blog.html">blog</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a href="resume.html">resume</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section class="hero">
+      <h1>Internet Plumber &amp; Computer Janitor</h1>
+      <div class="btn-group">
+	<a href="#about" class="btn btn-primary">About</a>
+ 	<a href="blog.html" class="btn btn-secondary">Blog</a>
+	<a href="resume.html" class="btn btn-secondary">View resume</a>
+	<a href="#contact" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <br><br>
+      <p>Hi I'm Stevie Bellis, professionally I've spent the last 10 years of my career in tech, with the last 7 or so rapturously focused on hybrid datacenter and cloud environments, operating shared infrastructure for enterprise SaaS. Mostly SRE stuff. Focused primarily on networking, security, Linux systems, and building automation and backend tooling to support customer facing production environments.
+      <br><br>
+      Unprofessionally I like riding bicycles, hiking, live music, rock climbing/bouldering, swiming in warm and hot water, camping, my cat and dog.
+      <br><br>
+      <br><br>
+      <!--Please hack this site or server, I'm bored. -->
+      <br><br>
+      
+    </section>
+
+    <section id="reading">
+      <h2>News, Alerts, Reading, and Feeds</h2>
+      <p>Blogs and resources I follow.</p>
+      <div class="feed-grid" id="feed-grid">
+        <div class="feed-loading">Loading feed sources...</div>
+      </div>
+      <div class="live-feeds">
+        <h3><span class="live-indicator"></span> Latest from the feeds</h3>
+        <div class="feed-filter-info" id="feed-filter-info">Showing latest from all sources.</div>
+        <div class="feed-content">
+          <div class="feed-loading" id="items-loading">Loading feeds...</div>
+          <ul class="feed-items" id="feed-items" style="display: none;"></ul>
+        </div>
+      </div>
+    </section>
+
+
+<section id="weather" class="weather-section">
+  <h2>Weather</h2>
+  <p>Live forecast for Austin, Texas. Data refreshed hourly from Google Weather API.</p>
+  <div class="weather-card" aria-label="Austin weather snapshot" data-weather>
+    <div class="weather-layout">
+      <div class="weather-main">
+        <div class="weather-head">
+          <span data-weather-location>Austin, TX</span>
+          <span data-weather-updated>Loading...</span>
+        </div>
+        <div class="weather-now">
+          <div class="temp" data-weather-now-temp>--°</div>
+          <div class="desc" data-weather-now-desc">Loading...</div>
+          <div class="range" data-weather-now-range>--</div>
+        </div>
+        <ul class="weather-list" data-weather-daily>
+          <li><span class="day">--</span><span class="range">-- / --</span><span class="cond">--</span></li>
+          <li><span class="day">--</span><span class="range">-- / --</span><span class="cond">--</span></li>
+          <li><span class="day">--</span><span class="range">-- / --</span><span class="cond">--</span></li>
+          <li><span class="day">--</span><span class="range">-- / --</span><span class="cond">--</span></li>
+        </ul>
+      </div>
+      <div class="weather-hourly">
+        <div class="hourly-head">
+          <span>Today · Hourly</span>
+          <span>Local</span>
+        </div>
+        <div class="hourly-row" data-weather-hourly role="list">
+          <div class="hourly-slot" role="listitem"><span class="time">--</span><span class="temp">--</span><span class="icon">--</span></div>
+          <div class="hourly-slot" role="listitem"><span class="time">--</span><span class="temp">--</span><span class="icon">--</span></div>
+          <div class="hourly-slot" role="listitem"><span class="time">--</span><span class="temp">--</span><span class="icon">--</span></div>
+          <div class="hourly-slot" role="listitem"><span class="time">--</span><span class="temp">--</span><span class="icon">--</span></div>
+          <div class="hourly-slot" role="listitem"><span class="time">--</span><span class="temp">--</span><span class="icon">--</span></div>
+          <div class="hourly-slot" role="listitem"><span class="time">--</span><span class="temp">--</span><span class="icon">--</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="weather-feed">
+      <span class="tag">feed</span>
+      <span data-weather-feed>/weather/weather_forecast.json</span>
+      <a href="/weather/weather_forecast.json" data-weather-feed-link aria-label="Weather feed JSON">json</a>
+    </div>
+  </div>
+</section>
+
+
+    <section id="star-controls">
+      <h2>Background Settings</h2>
+      <p>Adjust the floating particles.</p>
+      <div class="controls-grid">
+        <div class="control-item">
+          <label for="star-count">Density</label>
+          <input type="range" id="star-count" min="50" max="500" value="200">
+          <div class="control-value" id="star-count-value">200</div>
+        </div>
+        <div class="control-item">
+          <label for="star-size">Size</label>
+          <input type="range" id="star-size" min="5" max="30" value="15">
+          <div class="control-value" id="star-size-value">1.5px</div>
+        </div>
+        <div class="control-item">
+          <label for="star-speed">Speed</label>
+          <input type="range" id="star-speed" min="5" max="50" value="25">
+          <div class="control-value" id="star-speed-value">25</div>
+        </div>
+        <div class="control-item">
+          <label for="star-brightness">Brightness</label>
+          <input type="range" id="star-brightness" min="20" max="100" value="60">
+          <div class="control-value" id="star-brightness-value">60%</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="contact-info">• <a href="mailto:stevie@bellis.tech">stevie@bellis.tech</a> •</p>
+      <div class="social-links">
+        <a href="https://bellis.tech">bellis.tech</a>
+        <a href="https://www.linkedin.com/in/steviebellis">LinkedIn</a>
+        <a href="https://github.com/bellistech">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="dog-image">
+    <picture>
+  <source
+    type="image/avif"
+    srcset="/img/dog_160w.avif 160w, /img/dog_240w.avif 240w, /img/dog_300w.avif 300w"
+    sizes="(max-width: 360px) 160px, (max-width: 520px) 240px, 300px"
+  />
+  <source
+    type="image/webp"
+    srcset="/img/dog_160w.webp 160w, /img/dog_240w.webp 240w, /img/dog_300w.webp 300w"
+    sizes="(max-width: 360px) 160px, (max-width: 520px) 240px, 300px"
+  />
+  <img
+    src="/img/dog_300w.jpg"
+    width="300"
+    height="650"
+    loading="lazy"
+    decoding="async"
+    alt="Dog with orange-and-blue ball"
+  />
+  </picture>
+ 
+  </div>
+
+  <footer>Stevie Bellis • System Operations Human</footer>
+
+  <script src="/js/index.js"></script>
+  <script src="/js/weather.js"></script>
+</body>
+</html>
+
