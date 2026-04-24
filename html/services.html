@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>services — bellis.tech</title>
+  <meta name="description" content="Hourly, project, or retainer engineering services — hosting, backend, AI integration, compliance, networks, red/blue-team security, data-center smart hands. Austin, TX and remote.">
+  <meta name="author" content="Stevie Bellis">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://bellis.tech/services.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="bellis.tech">
+  <meta property="og:title" content="services — bellis.tech">
+  <meta property="og:description" content="System Operations Human for hire. Full-stack engineering from the cable to the cloud. Hourly, project, or retainer.">
+  <meta property="og:url" content="https://bellis.tech/services.html">
+  <meta property="og:image" content="https://bellis.tech/og-image.png?v=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="services — bellis.tech">
+  <meta name="twitter:description" content="System Operations Human for hire. Full-stack engineering from the cable to the cloud.">
+  <meta name="twitter:image" content="https://bellis.tech/og-image.png?v=3">
+
+  <!-- Icons & PWA (v3) -->
+  <link rel="icon" href="/favicon.ico?v=3" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+  <link rel="manifest" href="/site.webmanifest?v=3">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="msapplication-TileColor" content="#0a0a0a">
+  <meta name="msapplication-TileImage" content="/mstile-150x150.png?v=3">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/services.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <nav aria-label="Primary">
+    <a href="index.html" class="logo"><span>(B)</span>ELLIS TECH • System Operations Human</a>
+    <ul>
+      <li><a href="services.html" aria-current="page">services</a></li>
+      <li><a href="blog.html">blog</a></li>
+      <li><a href="#contact">contact</a></li>
+      <li><a href="https://unheaded.org/" rel="noopener noreferrer">unheaded</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+    <section class="hero services-hero">
+      <div class="hero-kicker">Full-stack engineering · Austin, TX · Remote globally</div>
+      <h1>Services &amp; Rates</h1>
+      <p>System Operations Human for hire. Hourly, per-project, or monthly retainer. Remote globally, on-site within Central Texas. Clear scope, honest estimates, written status updates, no-surprise billing.</p>
+      <div class="btn-group">
+        <a href="#stack" class="btn btn-primary">What I do</a>
+        <a href="#neighborhood" class="btn btn-secondary">Neighborhood rates</a>
+        <a href="#faq" class="btn btn-secondary">FAQ</a>
+        <a href="#contact" class="btn btn-secondary">Start a project</a>
+      </div>
+    </section>
+
+    <section id="stack" aria-labelledby="stack-heading">
+      <h2 id="stack-heading">What I do</h2>
+      <p>Pick one or bundle. Most engagements start with a 30-minute discovery call and a scoped written proposal before any clock starts. Internet plumbing, computer janitorial — take your pick.</p>
+
+      <div class="services-grid">
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Production hosting &amp; ops</h3>
+            <span class="service-price">from $4k/mo retainer</span>
+          </div>
+          <p>AWS or your cloud of choice — immutable infrastructure-as-code, GitOps deployment pipelines, eBPF-powered observability (Prometheus / Grafana / Loki / OpenTelemetry), encrypted backups with tested restores, runbooks, and on-call. I don't ship it and walk away.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">GitOps</span>
+            <span class="skill-tag">eBPF</span>
+            <span class="skill-tag">OpenTelemetry</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Backend &amp; API engineering</h3>
+            <span class="service-price">project-based</span>
+          </div>
+          <p>Go, Rust, Python, Ruby, Node. Clean architecture, real tests, deadline-propagating gRPC, HTTP/3 where it helps. Observable in production via OpenTelemetry and structured logs. Delivered with CI/CD, docs, and a handoff plan so your team can own it.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Go</span>
+            <span class="skill-tag">Rust</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">gRPC</span>
+            <span class="skill-tag">HTTP/3</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>AI integration</h3>
+            <span class="service-price">from $2k discovery</span>
+          </div>
+          <p>LLM APIs, RAG, agents, workflow automation. I use Claude as a daily dev partner and can show you how to do the same — securely, auditably, without leaking customer data.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Claude</span>
+            <span class="skill-tag">OpenAI</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">agents</span>
+            <span class="skill-tag">MCP</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Compliance readiness</h3>
+            <span class="service-price">scoped per framework</span>
+          </div>
+          <p>SOC 2 Type I &amp; II readiness prep, NIST 800-53 &amp; CSF control mapping, CIS / STIG hardening baselines, PCI-DSS 4.0 scoping, FedRAMP-moderate-aware infrastructure, SBOM generation (SPDX/CycloneDX), and HIPAA-aware consulting (Business Associate Agreements available for qualifying engagements). Zero-trust network architecture, mTLS, short-lived certificates, phishing-resistant auth (FIDO2/WebAuthn where possible). Continuous compliance with automated evidence collection — not a one-shot binder. Track record of first-time-pass audits. Readiness consulting, not certification — your auditor is still your auditor.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">SOC 2</span>
+            <span class="skill-tag">NIST 800-53</span>
+            <span class="skill-tag">PCI-DSS 4.0</span>
+            <span class="skill-tag">CIS / STIG</span>
+            <span class="skill-tag">SBOM</span>
+            <span class="skill-tag">Zero Trust</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Network engineering</h3>
+            <span class="service-price">from $150/hr</span>
+          </div>
+          <p>Two tiers, sized to the problem. <strong>Small office:</strong> firewalls, IPsec/WireGuard VPNs, site-to-site, VLAN segmentation, SSO/MFA — networks that actually work, documented end to end. <strong>Production / data-center fabrics:</strong> Clos spine-leaf with IS-IS or BGP underlay, EVPN-VXLAN overlay, MPLS where WAN needs it, IPv6-native, DNSSEC, QUIC/HTTP/3-aware middleboxes.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">BGP</span>
+            <span class="skill-tag">IS-IS</span>
+            <span class="skill-tag">EVPN-VXLAN</span>
+            <span class="skill-tag">MPLS</span>
+            <span class="skill-tag">IPv6</span>
+            <span class="skill-tag">DNSSEC</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Monitoring &amp; detection</h3>
+            <span class="service-price">from $2k/mo managed</span>
+          </div>
+          <p>Blue-team defense for small offices and production networks. DNS sinkholing (Pi-hole / AdGuard Home) with curated blocklists, firewall &amp; VLAN segmentation for IoT isolation, CVE triage against CISA KEV and NIST NVD feeds, device inventory with baselined behavior, anomaly detection for DGA / beaconing / DNS exfiltration, Suricata / Zeek flow analysis, log aggregation, and documented incident-response runbooks.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Pi-hole</span>
+            <span class="skill-tag">Suricata</span>
+            <span class="skill-tag">nftables</span>
+            <span class="skill-tag">CVE triage</span>
+            <span class="skill-tag">Anomaly detect</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Security assessment &amp; red team</h3>
+            <span class="service-price">from $5k engagement</span>
+          </div>
+          <p>Passive reconnaissance, perimeter assessment, DNS + certificate-transparency + OSINT sweeps, TLS &amp; HTTP-security-header audits, STRIDE threat modeling, pre-audit penetration testing, vulnerability assessment with CVE prioritization, and bug-bounty scoping. Written rules of engagement, scoped targets, responsible disclosure, and a report with prioritized remediation — not a 400-page PDF nobody reads.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Pentest</span>
+            <span class="skill-tag">Threat Model</span>
+            <span class="skill-tag">OSINT</span>
+            <span class="skill-tag">TLS Audit</span>
+            <span class="skill-tag">Fuzzing</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Data-center smart hands</h3>
+            <span class="service-price">from $150/hr + T&amp;M</span>
+          </div>
+          <p>Austin / Central Texas. Rack &amp; stack, structured cabling, run and terminate Cat6/6A copper and OS2/OM4 fiber, cross-connects, Direct Connect and Express Route turn-ups, hot/cold-aisle tidy-ups, remote-hands runbooks. General liability coverage in force; COI available on request for qualifying engagements.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">OS2 Fiber</span>
+            <span class="skill-tag">Cat6A</span>
+            <span class="skill-tag">Cross-connect</span>
+            <span class="skill-tag">Direct Connect</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Legacy modernization</h3>
+            <span class="service-price">project-based</span>
+          </div>
+          <p>On-prem to cloud, monoliths to containers, zero-downtime database migrations. Infrastructure-as-code from day one; cutovers instrumented so most drift and regressions surface before users notice. Fifty-plus production migrations executed; zero data loss on record to date. Rollback gets planned before the roll-forward starts.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Terraform</span>
+            <span class="skill-tag">Ansible</span>
+            <span class="skill-tag">Containers</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MySQL</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Fractional SRE / on-call</h3>
+            <span class="service-price">from $6k/mo</span>
+          </div>
+          <p>Stand up reliability practice for your existing team, or carry the pager yourself. SLO design, error budgets, USE-method instrumentation, chaos engineering, incident response, blameless postmortem culture — the real SRE playbook.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">SLOs</span>
+            <span class="skill-tag">Error Budgets</span>
+            <span class="skill-tag">Chaos</span>
+            <span class="skill-tag">USE Method</span>
+            <span class="skill-tag">Blameless PMs</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="neighborhood" aria-labelledby="neighborhood-heading">
+      <div class="tier-label">Tier 1 · flat-fee</div>
+      <h2 id="neighborhood-heading">Neighborhood rates</h2>
+      <p>Flat-fee work for small shops, home offices, restaurants, and solo operators — Austin and Central Texas. No retainer. No contract. Come for the Wi-Fi fix, stay for the rest. Prices below include parts labor; hardware billed at cost with receipts.</p>
+
+      <div class="services-grid">
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>House-call diagnostic</h3>
+            <span class="service-price">$95 flat · 1 hour</span>
+          </div>
+          <p>Triage whatever's broken. If the fix is fast, I do it on the spot. If it's a real project, I leave you with a written estimate and an honest "fix now / fix later / don't bother" recommendation.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">On-site</span>
+            <span class="skill-tag">Austin / CenTex</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Wi-Fi, networking &amp; printers</h3>
+            <span class="service-price">$150 flat</span>
+          </div>
+          <p>Router and access-point setup, guest network, basic firewall, get the point-of-sale on its own VLAN, get the printer to actually print. Passwords written down somewhere you won't lose them.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Wi-Fi</span>
+            <span class="skill-tag">VLAN</span>
+            <span class="skill-tag">Printers</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Email, domain &amp; basic security</h3>
+            <span class="service-price">$200 flat</span>
+          </div>
+          <p>Custom domain email (<code>you@yourshop.com</code>), Google Workspace or Microsoft 365 setup, SPF/DKIM/DMARC records so your messages stop landing in spam, password manager rolled out, MFA turned on.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Google Workspace</span>
+            <span class="skill-tag">M365</span>
+            <span class="skill-tag">DMARC</span>
+            <span class="skill-tag">MFA</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>One-page website</h3>
+            <span class="service-price">$500 launch + $25/mo</span>
+          </div>
+          <p>Clean, fast, mobile-friendly. Domain, SSL, privacy-first analytics, contact form, business hours, map, menu/services. No WordPress nightmares, no monthly theme-update panic. You own the files.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">Static hosting</span>
+            <span class="skill-tag">SSL</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Computer tune-up &amp; cleanup</h3>
+            <span class="service-price">$125 / device</span>
+          </div>
+          <p>Slow laptop? Weird pop-ups? Someone said you have a virus? Full tune-up — crud removed, updates applied, password manager installed, MFA turned on, automatic backups set up so losing the laptop stops meaning losing the business.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Windows</span>
+            <span class="skill-tag">macOS</span>
+            <span class="skill-tag">Backups</span>
+          </div>
+        </article>
+
+        <article class="skill-category service-card">
+          <div class="service-head">
+            <h3>Tech training / hand-holding</h3>
+            <span class="service-price">$85/hr · 2-hr min</span>
+          </div>
+          <p>Sit with you and your laptop. Email, files, passwords, the scary button. Plain English, no condescending "well actually," and notes you can keep. Bring your questions; I'll bring the patience.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Training</span>
+            <span class="skill-tag">Plain English</span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="neighborhood-note">Something not listed? Hourly for this tier is $100/hr with a 2-hour minimum per visit. Travel outside Austin metro may add mileage at the IRS standard rate. Weekend and after-hours work by arrangement. Payment accepted by card (Stripe), ACH, Venmo, Zelle, or check — invoice emailed the same day, due on receipt for tier 1 work.</p>
+    </section>
+
+    <section id="fit" aria-labelledby="fit-heading">
+      <h2 id="fit-heading">Who I work with</h2>
+      <p>Honest up front — saves us both a wasted intro call.</p>
+
+      <div class="fit-grid">
+        <div class="fit-col fit-yes">
+          <h3>Great fit</h3>
+          <ul>
+            <li>Small businesses whose "IT guy" left and nothing works anymore.</li>
+            <li>Startups shipping an MVP who need it actually hosted and kept up.</li>
+            <li>Founders adding AI features without hiring a full ML team.</li>
+            <li>Regulated businesses wanting compliance readiness without a $200k consulting invoice.</li>
+            <li>Teams staring down a first SOC 2 audit, PCI scope change, or vendor security questionnaire.</li>
+            <li>Offices that need eyes on the network — DNS sinkholing, IoT VLANs, anomaly alerts — without a dedicated SOC.</li>
+            <li>Teams preparing for a pentest, vendor questionnaire, or first bug-bounty program, and wanting a dry run before the real adversary shows up.</li>
+            <li>Corner-shop owners, restaurants, and solo operators who need Wi-Fi to work, email not to go to spam, and the laptop to stop doing the thing.</li>
+            <li>Companies modernizing legacy infrastructure or websites.</li>
+            <li>Engineering teams needing senior capacity on short notice.</li>
+          </ul>
+        </div>
+        <div class="fit-col fit-no">
+          <h3>Probably not a fit</h3>
+          <ul>
+            <li>"Can you just log in and fix my Wi-Fi real quick for free."</li>
+            <li>Resale of third-party SaaS with margin as the only value-add.</li>
+            <li>Projects requiring a licensed Texas Professional Engineer seal.</li>
+            <li>Legal work, accounting, medical advice — I'll refer you out.</li>
+            <li>Adversarial engagements without scope, contract, or deposit.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" aria-labelledby="why-heading">
+      <h2 id="why-heading">Why hire me</h2>
+      <p>Most of what follows is pattern-recognition from ten years operating production — not theory.</p>
+
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <h3>The person on the call is the person in the terminal</h3>
+          <p>Solo operator. No account manager upsell, no bait-and-switch to a junior team once the ink dries. You hire the engineer; the engineer shows up.</p>
+        </div>
+
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <h3>L1 to L7 in one head</h3>
+          <p>I can run the cable, tune the kernel, route the packet, scale the API, and prep the audit. Most engineers own one or two layers. I own the stack — and know where the failure modes actually live.</p>
+        </div>
+
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <h3>I write the specs I build to</h3>
+          <p>Author of Unheaded, an open-source infrastructure framework with companion IETF Internet-Drafts. The rigor it takes to write a wire-format spec shows up in everything else I ship — runbooks, architecture docs, change records.</p>
+        </div>
+
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <h3>I stick around</h3>
+          <p>Retainer-first mindset. Launch is the starting line, not the finish. Worst case: I build it, you own it, and I'm on call for the 3 a.m. pages until you decide otherwise.</p>
+        </div>
+
+        <div class="why-item">
+          <div class="why-num">05</div>
+          <h3>Two tiers, one operator</h3>
+          <p>A $95 Wi-Fi house call and a $25k SOC 2 prep engagement get the same engineer, same standards, same accountability. Tier 1 feeds referrals. Tier 2 pays the rent. Both get real attention.</p>
+        </div>
+
+        <div class="why-item">
+          <div class="why-num">06</div>
+          <h3>Honest up front</h3>
+          <p>If I can't do the work well, I say so in the discovery call and point you somewhere useful. I don't take money for work I can't ship right. "Probably not a fit" above is a real list, not marketing theater.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="engagement" aria-labelledby="engagement-heading">
+      <h2 id="engagement-heading">How I work</h2>
+      <p>Three steps, boringly predictable on purpose.</p>
+
+      <div class="engagement-grid">
+        <div class="engagement-step">
+          <div class="step-tag">01 · discovery</div>
+          <h3>30-minute intro call</h3>
+          <p>I shape scope from day one — not just take a ticket. You describe the problem, I ask the clarifying questions, we decide together if I'm the right fit. If I'm not, I try to point you somewhere that is.</p>
+        </div>
+        <div class="engagement-step">
+          <div class="step-tag">02 · scope</div>
+          <h3>Written proposal</h3>
+          <p>MSA + SOW with milestones, deliverables, pricing, and assumptions in writing before any clock starts. Misaligned specs cost 10× to fix later — I surface the hard questions up front so nothing gets invented mid-project.</p>
+        </div>
+        <div class="engagement-step">
+          <div class="step-tag">03 · ship</div>
+          <h3>Build &amp; handoff</h3>
+          <p>Weekly status updates, zero-surprise billing. Code in your repo, infra in your account, runbooks in your wiki. Launch is when we prove the system works — not when I disappear.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="receipts" aria-labelledby="receipts-heading">
+      <h2 id="receipts-heading">Receipts</h2>
+      <p>Ten years in production. Seven as an SRE at Supplyframe (acquired by Siemens), running shared infrastructure for an enterprise SaaS serving millions of electronics engineers. Before that, three years of network administration and desktop support.</p>
+      <p>I'm also the author of <a href="https://unheaded.org/" rel="noopener noreferrer">Unheaded</a> — an open-source infrastructure-as-code framework with companion IETF Internet-Drafts. I write the specs I build to. That work doesn't pay me, but it keeps me sharp at the gate level, which shows up in the quality of everything else I ship.</p>
+
+      <div class="receipts-grid">
+        <div class="receipt">
+          <div class="receipt-num">10+</div>
+          <div class="receipt-label">years in production IT</div>
+        </div>
+        <div class="receipt">
+          <div class="receipt-num">1000+</div>
+          <div class="receipt-label">production services operated</div>
+        </div>
+        <div class="receipt">
+          <div class="receipt-num">50+</div>
+          <div class="receipt-label">zero-downtime DB migrations</div>
+        </div>
+        <div class="receipt">
+          <div class="receipt-num">L1→L7</div>
+          <div class="receipt-label">cable to cloud</div>
+        </div>
+      </div>
+
+      <p class="references-note">Client references and anonymized case studies available under NDA on request — after the discovery call.</p>
+    </section>
+
+    <section id="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Before you email</h2>
+      <p>The questions I get most often, answered up front so you don't have to ask.</p>
+
+      <div class="faq-grid">
+        <details class="faq-item">
+          <summary>What happens on the discovery call?</summary>
+          <p>Thirty minutes, free, no sales pitch. You describe the problem, I ask clarifying questions, we figure out if I'm the right fit. If I'm not, I try to point you at someone who is. If I am, I send a written proposal within two business days.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I pay?</summary>
+          <p>Tier 1 neighborhood work: card, ACH, Venmo, Zelle, or check — invoice same day, due on receipt. Projects and retainers: Stripe invoicing, ACH, or wire. Net-15 for retainers, 50/50 milestone split for fixed-price projects, weekly invoicing for T&amp;M.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you work nights, weekends, or emergencies?</summary>
+          <p>Planned after-hours work by arrangement — usually at 1.5× the tier's hourly rate. Same-day emergency response for retainer clients is included up to the retainer's hour bank; non-retainer emergency calls are $250/hr with a 2-hour minimum.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will you sign an NDA?</summary>
+          <p>Mutual NDAs, yes. One-way NDAs that make me indemnify you for your own data handling, no — that's what the MSA is for. Happy to redline a draft; can also provide a standard mutual-NDA template that usually works for both sides.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you travel outside Austin?</summary>
+          <p>Remote work: anywhere, any timezone. On-site: free within the Austin metro; IRS-standard mileage outside it; full per-diem + flights for engagements that need multi-day on-site presence. Central Texas cities (San Antonio, Waco, Temple, Killeen, San Marcos) are regular territory.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Do you subcontract?</summary>
+          <p>Not by default. If a project needs specialists I don't have (licensed PE, specific legal counsel, specialized cabling at scale), I introduce you directly and step out of the middle — I don't mark up other people's work. For ongoing retainers with more volume than I can personally handle, we'll discuss before signing.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Insurance and certificate of insurance?</summary>
+          <p>General liability coverage in force. E&amp;O (professional liability) and cyber-liability coverage bound per engagement where scope requires. Certificate of insurance available on request from the carrier — usually 1-2 business days.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if the project goes over scope?</summary>
+          <p>Fixed-price engagements have a written scope and a written change-order process. Small in-flight changes under 10% of the original estimate are absorbed; larger changes get a written amendment you approve before I start them. You don't get surprise invoices.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="contact-info">• <a href="mailto:stevie@bellis.tech?subject=Project%20inquiry">stevie@bellis.tech</a> •</p>
+      <p class="contact-sub">Send a short description of the problem and any deadlines. I usually reply within one business day with either a discovery-call slot or an honest "not my lane, here's who is."</p>
+      <div class="social-links">
+        <a href="resume.html">Resume</a>
+        <a href="https://www.linkedin.com/in/steviebellis" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/bellistech" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Stevie Bellis • System Operations Human • Austin, TX</p>
+    <p class="fine-print">Bellis Systems LLC (Texas, formation pending). Not a licensed Professional Engineer under Texas Occupations Code Chapter 1001 — no engineering seal work provided. Pricing shown is indicative and subject to scope of engagement; final terms governed by the signed MSA &amp; SOW. Third-party marks (AWS, Claude, Grafana, Prometheus, Loki, Terraform, Juniper, PostgreSQL, MySQL, SOC 2, NIST, HIPAA, and others) are property of their respective owners; mention here does not imply endorsement, affiliation, or certification unless explicitly stated. Information on this page is general and does not constitute legal, tax, security, or medical advice.</p>
+    <p class="fine-print">Page version 1.0 · last updated <time datetime="2026-04-24">2026-04-24</time></p>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
